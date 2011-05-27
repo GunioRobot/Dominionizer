@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A2E49B5C-7095-4B9E-8CF7-C04550BD0695}"
+	ProjectSection(SolutionItems) = preProject
+		Dominionizer1.vsmdi = Dominionizer1.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominionizer.Phone.Test", "Dominionizer.Phone.Test\Dominionizer.Phone.Test.csproj", "{021901A7-7CAF-4721-A260-66EDDFACD121}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominionizer.Phone.Core", "Dominionizer.Phone.Core\Dominionizer.Phone.Core.csproj", "{A6E18AE1-847D-4BB1-B8FB-7257B89E1CA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominionizer.Web.Core", "Dominionizer.Web.Core\Dominionizer.Web.Core.csproj", "{65296364-23C9-4293-974F-CF924251363D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominionizer.Phone", "Dominionizer.Phone\Dominionizer.Phone.csproj", "{BDA9E860-7B7D-4B0D-B23B-F401309B3744}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominionizer.Web", "Dominionizer.Web\Dominionizer.Web.csproj", "{C5D17A88-EFF6-4994-9ED4-C8DBC776C384}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Dominionizer1.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{021901A7-7CAF-4721-A260-66EDDFACD121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{021901A7-7CAF-4721-A260-66EDDFACD121}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{021901A7-7CAF-4721-A260-66EDDFACD121}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{021901A7-7CAF-4721-A260-66EDDFACD121}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6E18AE1-847D-4BB1-B8FB-7257B89E1CA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6E18AE1-847D-4BB1-B8FB-7257B89E1CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6E18AE1-847D-4BB1-B8FB-7257B89E1CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6E18AE1-847D-4BB1-B8FB-7257B89E1CA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65296364-23C9-4293-974F-CF924251363D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65296364-23C9-4293-974F-CF924251363D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65296364-23C9-4293-974F-CF924251363D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{65296364-23C9-4293-974F-CF924251363D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65296364-23C9-4293-974F-CF924251363D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDA9E860-7B7D-4B0D-B23B-F401309B3744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDA9E860-7B7D-4B0D-B23B-F401309B3744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDA9E860-7B7D-4B0D-B23B-F401309B3744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDA9E860-7B7D-4B0D-B23B-F401309B3744}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDA9E860-7B7D-4B0D-B23B-F401309B3744}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C5D17A88-EFF6-4994-9ED4-C8DBC776C384}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5D17A88-EFF6-4994-9ED4-C8DBC776C384}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5D17A88-EFF6-4994-9ED4-C8DBC776C384}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5D17A88-EFF6-4994-9ED4-C8DBC776C384}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+EndGlobal
