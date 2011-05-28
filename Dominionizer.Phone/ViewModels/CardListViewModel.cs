@@ -1,8 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Xml.Serialization;
-using Dominionizer.Phone.Core;
 using Dominionizer.Messages;
+using Dominionizer.Phone.Core;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
@@ -27,6 +27,8 @@ namespace Dominionizer.ViewModels
             if (!IsInDesignMode)
                 LoadGameParameters();
 
+            SwapCardCommand = new RelayCommand<Card>((card) => SwapCard(card));
+
             // set up commands
             GenerateCardList = new RelayCommand(() =>
                 {
@@ -48,6 +50,8 @@ namespace Dominionizer.ViewModels
                 SwapCard(message.SelectedCard);
             });
         }
+
+        public RelayCommand<Card> SwapCardCommand { get; set; }
 
         private void SwapCard(Card card)
         {

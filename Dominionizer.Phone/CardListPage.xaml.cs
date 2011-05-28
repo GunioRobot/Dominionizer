@@ -1,6 +1,6 @@
 ﻿using System.Windows;
-using Dominionizer.Phone.Core;
 using Dominionizer.Messages;
+using Dominionizer.Phone.Core;
 using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Phone.Controls;
 using Microsoft.Xna.Framework.Input.Touch;
@@ -34,6 +34,11 @@ namespace DominionKingdomDeck
         private void AnimateRemove(FrameworkElement sourceObject)
         {
             // do some kind of animation to make this framework element go away in a pretty way
+        }
+
+        private void RefreshButton_Click(object sender, System.EventArgs e)
+        {
+            Messenger.Default.Send<GenerateCardListMessage>(new GenerateCardListMessage());
         }
     }
 }

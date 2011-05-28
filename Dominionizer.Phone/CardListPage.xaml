@@ -9,12 +9,14 @@
                             xmlns:GalaSoft_MvvmLight_Command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP7"
                             xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
                             xmlns:local="clr-namespace:Dominionizer.ViewModels"
-                            xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls" xmlns:ViewModels="clr-namespace:Dominionizer.ViewModels" x:Class="DominionKingdomDeck.CardListPage"
+                            xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+                            xmlns:ViewModels="clr-namespace:Dominionizer.ViewModels"
+                            x:Class="DominionKingdomDeck.CardListPage"
                             DataContext="{Binding Path=CardListViewModel, Source={StaticResource Locator}}"
                             SupportedOrientations="Portrait"
                             Orientation="Portrait"
                             mc:Ignorable="d"
-                            d:DesignHeight="768"
+                            d:DesignHeight="696"
                             d:DesignWidth="480"
                             shell:SystemTray.IsVisible="True">
     <phone:PhoneApplicationPage.Resources>
@@ -27,27 +29,24 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+
         <TextBlock Text="Kingdom Cards"
                    FontSize="56"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    Margin="0,0,0,15" />
+
         <ListBox ItemsSource="{Binding Cards}"
                  Grid.Row="1"
+                 x:Name="CardsListBox"
                  SelectedItem="{Binding SelectedCard, Mode=TwoWay}"
                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,0,0,15"
-                          Width="470"
-                          ManipulationCompleted="Grid_ManipulationCompleted">
-                    	<Custom:Interaction.Triggers>
-                    		<Custom:EventTrigger EventName="Loaded">
-                    			<GalaSoft_MvvmLight_Command:EventToCommand/>
-                    		</Custom:EventTrigger>
-                    	</Custom:Interaction.Triggers>
+                          Width="470">
+
                         <Grid.ColumnDefinitions>
                             <!-- Image, Title, Cost, Cost Image, Potions, Potions Image, Set -->
                             <ColumnDefinition Width="Auto" />
@@ -58,6 +57,15 @@
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
+
+                        <toolkit:ContextMenuService.ContextMenu>
+                            <toolkit:ContextMenu x:Name="ItemContextMenu">
+                                <toolkit:MenuItem x:Name="SwapCardMenuItem"
+                                                  Header="swap this card"
+                                                  Command="{Binding ElementName=CardsListBox,Path=DataContext.SwapCardCommand}"
+                                                  CommandParameter="{Binding}" />
+                            </toolkit:ContextMenu>
+                        </toolkit:ContextMenuService.ContextMenu>
 
                         <!-- Card Symbol -->
                         <Image Width="15"
@@ -117,16 +125,15 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Button Content="Refresh"
-                Grid.Row="2"
-                Margin="0"
-                d:LayoutOverrides="Width">
-            <Custom:Interaction.Triggers>
-                <Custom:EventTrigger EventName="Click">
-                    <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding GenerateCardList}" />
-                </Custom:EventTrigger>
-            </Custom:Interaction.Triggers>
-        </Button>
     </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsMenuEnabled="False">
+            <shell:ApplicationBarIconButton x:Name="RefreshButton"
+                                            Text="Refresh"
+                                            IconUri="/Icons/dark/appbar.refresh.rest.png"
+                                            Click="RefreshButton_Click" />
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 
 </phone:PhoneApplicationPage>
