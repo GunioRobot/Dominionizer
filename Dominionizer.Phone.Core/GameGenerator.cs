@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Xml.Serialization;
 
 namespace Dominionizer.Phone.Core
 {
@@ -21,7 +23,7 @@ namespace Dominionizer.Phone.Core
             if (availableCards.Count == 0)
                 return gameCards;
 
-            if (parameters.RequireTwoToFiveCostCards)
+            if (parameters.FindRule("RequireTwoToFiveCostCards").IsSet)
             {
                 var twoToFiveCostCards = GetTwoToFiveCostCards(availableCards);
                 gameCards.AddRange(twoToFiveCostCards);
@@ -42,7 +44,7 @@ namespace Dominionizer.Phone.Core
             Card lastCard;
             int reactionCardCount = availableCards.Where(x => x.Type == CardType.Reaction).Count();
 
-            if (parameters.RequireReactionToAttack && reactionCardCount != 0)
+            if (parameters.FindRule("RequireReactionToAttack").IsSet && reactionCardCount != 0)
                 lastCard = GetReactionCard(availableCards, gameCards);
             else
                 lastCard = GetRandomCardFromList(availableCards);
@@ -128,16 +130,16 @@ namespace Dominionizer.Phone.Core
             var availableCards = new List<Card>();
 
             // Regular Sets
-            if (parameters.Alchemy) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Alchemy));
-            if (parameters.Base) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Base));
-            if (parameters.Intrigue) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Intrigue));
-            if (parameters.Prosperity) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Prosperity));
-            if (parameters.Seaside) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Seaside));
-            
+            if (parameters.FindSet("Alchemy").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Alchemy));
+            if (parameters.FindSet("Base").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Base));
+            if (parameters.FindSet("Intrigue").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Intrigue));
+            if (parameters.FindSet("Prosperity").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Prosperity));
+            if (parameters.FindSet("Seaside").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Seaside));
+
             // Promo Cards
-            if (parameters.BlackMarket) availableCards.AddRange(cards.Where(x => x.Set == CardSet.BlackMarket));
-            if (parameters.Envoy) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Envoy));
-            if (parameters.Stash) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Stash));
+            if (parameters.FindSet("BlackMarket").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.BlackMarket));
+            if (parameters.FindSet("Envoy").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Envoy));
+            if (parameters.FindSet("Stash").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Stash));
 
             return availableCards;
         }
@@ -179,32 +181,82 @@ namespace Dominionizer.Phone.Core
 
     public class GameGeneratorParameters
     {
-        public bool Base { get; set; }
+        [XmlIgnore]
+        private List<GameGeneratorSet> _Sets = new List<GameGeneratorSet>();
 
-        public bool Alchemy { get; set; }
+        public List<GameGeneratorSet> Sets
+        {
+            get
+            {
+                return _Sets;
+            }
+            set
+            {
+                _Sets = value;
+            }
+        }
 
-        public bool Intrigue { get; set; }
+        [XmlIgnore]
+        private List<GameGeneratorRule> _Rules = new List<GameGeneratorRule>();
 
-        public bool Prosperity { get; set; }
+        public List<GameGeneratorRule> Rules
+        {
+            get
+            {
+                return _Rules;
+            }
+            set
+            {
+                _Rules = value;
+            }
+        }
 
-        public bool Seaside { get; set; }
+        public GameGeneratorSet FindSet(string setKey)
+        {
+            return Sets.Where(set => set.Key == setKey).First();
+        }
 
-        public bool RequireTwoToFiveCostCards { get; set; }
+        public GameGeneratorRule FindRule(string ruleKey)
+        {
+            return Rules.Where(rule => rule.Key == ruleKey).First();
+        }
 
-        public bool RequireReactionToAttack { get; set; }
-
-        public bool BlackMarket { get; set; }
-
-        public bool Envoy { get; set; }
-
-        public bool Stash { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the GameGeneratorParameters class.
-        /// </summary>
         public GameGeneratorParameters()
         {
-            Base = true;
         }
+
+        public static GameGeneratorParameters GetInstance()
+        {
+            var parms = new GameGeneratorParameters();
+            parms.Sets.Add(new GameGeneratorSet() { Key = "Base", Name = "Base", IsSet = true });
+            parms.Sets.Add(new GameGeneratorSet() { Key = "Alchemy", Name = "Alchemy", IsSet = false });
+            parms.Sets.Add(new GameGeneratorSet() { Key = "Intrigue", Name = "Intrigue", IsSet = false });
+            parms.Sets.Add(new GameGeneratorSet() { Key = "Prosperity", Name = "Prosperity", IsSet = false });
+            parms.Sets.Add(new GameGeneratorSet() { Key = "Seaside", Name = "Seaside", IsSet = false });
+            parms.Sets.Add(new GameGeneratorSet() { Key = "BlackMarket", Name = "Black Market", IsSet = false });
+            parms.Sets.Add(new GameGeneratorSet() { Key = "Envoy", Name = "Envoy", IsSet = false });
+            parms.Sets.Add(new GameGeneratorSet() { Key = "Stash", Name = "Stash", IsSet = false });
+            parms.Rules.Add(new GameGeneratorRule() { Key = "RequireTwoToFiveCostCards", Name = "Require Two To Five Cost Cards", IsSet = false });
+            parms.Rules.Add(new GameGeneratorRule() { Key = "RequireReactionToAttack", Name = "Require Reaction To Attack", IsSet = false });
+            return parms;
+        }
+    }
+
+    public abstract class GameGeneratorParameter
+    {
+        public string Name { get; set; }
+
+        public string Key { get; set; }
+
+        public bool IsSet { get; set; }
+    }
+
+    public class GameGeneratorSet : GameGeneratorParameter
+    {
+    }
+
+    public class GameGeneratorRule : GameGeneratorParameter
+    {
+        public string Description { get; set; }
     }
 }

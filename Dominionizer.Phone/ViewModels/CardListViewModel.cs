@@ -23,35 +23,22 @@ namespace Dominionizer.ViewModels
 
         public CardListViewModel()
         {
-            // make sure we have the parameters loaded from IsolatedStorage before trying to calculate cards
-            if (!IsInDesignMode)
-                LoadGameParameters();
-
+            // set up commands
+            GenerateCardList = new RelayCommand(() => GenerateCardListForSettings());
             SwapCardCommand = new RelayCommand<Card>((card) => SwapCard(card));
 
-            // set up commands
-            GenerateCardList = new RelayCommand(() =>
-                {
-                    GenerateCardListForSettings();
-                });
-
             // register for messages
-            Messenger.Default.Register<GenerateCardListMessage>(this, (message) =>
-                {
-                    GenerateCardListForSettings();
-                });
+            Messenger.Default.Register<SettingsLoadedMessage>(this, (message) => _parameters = message.Parameters);
             Messenger.Default.Register<SettingsSavedMessage>(this, (message) =>
-                {
-                    _parameters = message.Parameters;
-                    GenerateCardListForSettings();
-                });
-            Messenger.Default.Register<SwapCardMessage>(this, (message) =>
             {
-                SwapCard(message.SelectedCard);
+                _parameters = message.Parameters;
+                GenerateCardListForSettings();
             });
+            Messenger.Default.Register<GenerateCardListMessage>(this, (message) => GenerateCardListForSettings());
+            Messenger.Default.Register<SwapCardMessage>(this, (message) => SwapCard(message.SelectedCard));
         }
 
-        public RelayCommand<Card> SwapCardCommand { get; set; }
+        public RelayCommand<Card> SwapCardCommand { get; private set; }
 
         private void SwapCard(Card card)
         {
@@ -61,11 +48,6 @@ namespace Dominionizer.ViewModels
             Cards.Remove(card);
             var newCard = _generator.GetReplacementCard(Cards, _parameters);
             Cards.Insert(location, newCard);
-        }
-
-        private void LoadGameParameters()
-        {
-            _parameters = StorageHelper.LoadGameParameters();
         }
 
         private void GenerateCardListForSettings()
@@ -135,24 +117,4 @@ namespace Dominionizer.ViewModels
 
         #endregion Cards property
     }
-
-    //public static class ListExtension
-    //{
-    //    public static void BubbleSort<T>(this IList o) where T : IComparable<T>
-    //    {
-    //        for (int i = o.Count - 1; i >= 0; i--)
-    //        {
-    //            for (int j = 1; j <= i; j++)
-    //            {
-    //                T o1 = (T)o[j - 1];
-    //                T o2 = (T)o[j];
-    //                if (o1.CompareTo(o2) > 0)
-    //                {
-    //                    o.Remove(o1);
-    //                    o.Insert(j, o1);
-    //                }
-    //            }
-    //        }
-    //    }
-    //}
 }

@@ -69,6 +69,9 @@
     <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="Microsoft.Xna.Framework" />
     <Reference Include="Microsoft.Xna.Framework.Input.Touch" />
+    <Reference Include="Newtonsoft.Json.WindowsPhone">
+      <HintPath>..\packages\Newtonsoft.Json.4.0.2\lib\sl3-wp\Newtonsoft.Json.WindowsPhone.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
@@ -91,6 +94,8 @@
     </Compile>
     <Compile Include="Messages\GenerateCardListMessage.cs" />
     <Compile Include="Messages\OpenSettingsPageMessage.cs" />
+    <Compile Include="Messages\SaveSettingsMessage.cs" />
+    <Compile Include="Messages\SettingsLoadedMessage.cs" />
     <Compile Include="Messages\SettingsSavedMessage.cs" />
     <Compile Include="Messages\SwapCardMessage.cs" />
     <Compile Include="PhoneUtil.cs" />

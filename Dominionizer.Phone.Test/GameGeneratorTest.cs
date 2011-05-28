@@ -1,10 +1,8 @@
 ﻿namespace Dominionizer.Phone.Test
 {
     using System.Linq;
-
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
     using Dominionizer.Phone.Core;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class GameGeneratorTest
@@ -13,7 +11,9 @@
         public void Pick10RandomCardsWithNoRules()
         {
             var game = new GameGenerator();
-            var parameters = new GameGeneratorParameters { Base = true, Intrigue = true };
+            var parameters = (GameGeneratorParameters.GetInstance());
+            parameters.FindSet("Base").IsSet = true;
+            parameters.FindSet("Intrigue").IsSet = true;
 
             var cards = game.GetGameCards(parameters);
 
@@ -24,7 +24,9 @@
         public void Pick10RandomCardsThatRequiresTwoToFiveCostCards()
         {
             var game = new GameGenerator();
-            var parameters = new GameGeneratorParameters { Base = true, RequireTwoToFiveCostCards = true };
+            var parameters = GameGeneratorParameters.GetInstance();
+            parameters.FindSet("Base").IsSet = true;
+            parameters.FindRule("TwoToFiveCostCards").IsSet = true;
 
             var cards = game.GetGameCards(parameters);
 
@@ -33,12 +35,14 @@
             Assert.IsTrue(cards.Where(x => x.Cost == 4).Count() >= 1);
             Assert.IsTrue(cards.Where(x => x.Cost == 5).Count() >= 1);
         }
-    
+
         [TestMethod]
         public void Pick10RandomCardsThatRequireAReactionCardIfAttackCardPresent()
         {
             var game = new GameGenerator();
-            var parameters = new GameGeneratorParameters { Base = true, RequireReactionToAttack = true };
+            var parameters = GameGeneratorParameters.GetInstance();
+            parameters.FindSet("Base").IsSet = true;
+            parameters.FindRule("RequireReactionToAttack").IsSet = true;
 
             var cards = game.GetGameCards(parameters);
 
@@ -47,12 +51,15 @@
             else
                 Assert.IsTrue(cards.Where(x => x.Type == CardType.Attack).Count() == 0);
         }
-    
+
         [TestMethod]
         public void Pick10RandomCardsWithTwoToFiveCostAndRequireReactionIfAttackCardPresent()
         {
             var game = new GameGenerator();
-            var parameters = new GameGeneratorParameters { Base = true, RequireTwoToFiveCostCards = true , RequireReactionToAttack = true };
+            var parameters = GameGeneratorParameters.GetInstance();
+            parameters.FindSet("Base").IsSet = true;
+            parameters.FindRule("RequireTwoToFiveCostCards").IsSet = true;
+            parameters.FindRule("RequireReactionToAttack").IsSet = true;
 
             var cards = game.GetGameCards(parameters);
 

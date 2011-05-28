@@ -1,6 +1,5 @@
 ﻿using System;
 using Dominionizer.Messages;
-using Dominionizer.ViewModels;
 using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Phone.Controls;
 
@@ -18,10 +17,10 @@ namespace Dominionizer
             });
         }
 
-        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
         {
-            //TODO: Add some code here to make sure we're saving changes before leaving unexpectedly
-            base.OnBackKeyPress(e);
+            Messenger.Default.Send<SaveSettingsMessage>(new SaveSettingsMessage());
+            base.OnNavigatedFrom(e);
         }
     }
 }

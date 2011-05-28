@@ -1,45 +1,52 @@
 ﻿using System;
+using System.IO;
 using System.IO.IsolatedStorage;
+using System.Xml.Serialization;
 using Dominionizer.Phone.Core;
+using Newtonsoft.Json;
 
 namespace Dominionizer.ViewModels
 {
     public class StorageHelper
     {
-        private static IsolatedStorageSettings settings = IsolatedStorageSettings.ApplicationSettings;
+        private readonly static string filename = "settings.dat";
 
         public static void SaveGameParameters(GameGeneratorParameters parameters)
         {
-            if (!settings.Contains("parameters"))
-                settings.Add("parameters", parameters);
-            else
-                settings["parameters"] = parameters;
+            var json = JsonConvert.SerializeObject(parameters);
+            using (IsolatedStorageFile isf = IsolatedStorageFile.GetUserStoreForApplication())
+            {
+                using (IsolatedStorageFileStream fs = isf.OpenFile(filename, FileMode.Create))
+                {
+                    using (var writer = new StreamWriter(fs))
+                    {
+                        writer.Write(json);
+                        writer.Close();
+                    }
+                }
+            }
         }
 
         public static GameGeneratorParameters LoadGameParameters()
         {
-            try
+            using (IsolatedStorageFile isf = IsolatedStorageFile.GetUserStoreForApplication())
             {
-                GameGeneratorParameters parameters;
-                if (settings.TryGetValue<GameGeneratorParameters>("parameters", out parameters))
+                if (isf.FileExists(filename))
                 {
-                    if (parameters == null)
+                    using (IsolatedStorageFileStream fs = isf.OpenFile(filename, FileMode.Open))
                     {
-                        return new GameGeneratorParameters();
-                    }
-                    else
-                    {
-                        return parameters;
+                        using (var reader = new StreamReader(fs))
+                        {
+                            var json = reader.ReadToEnd();
+                            var parameters = JsonConvert.DeserializeObject<GameGeneratorParameters>(json);
+                            return parameters;
+                        }
                     }
                 }
                 else
                 {
-                    return new GameGeneratorParameters();
+                    return GameGeneratorParameters.GetInstance();
                 }
-            }
-            catch
-            {
-                return new GameGeneratorParameters();
             }
         }
     }
