@@ -28,14 +28,14 @@ namespace Dominionizer.ViewModels
                 settings = IsolatedStorageSettings.ApplicationSettings;
 
             CreateMainViewModel();
-            CreateSettingsViewModel();
             CreateCardListViewModel();
+            CreateSettingsViewModel();
         }
 
         public static void Cleanup()
         {
-            ClearCardListViewModel();
             ClearSettingsViewModel();
+            ClearCardListViewModel();
             ClearMainViewModel();
         }
 
