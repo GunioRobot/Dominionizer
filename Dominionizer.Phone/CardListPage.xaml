@@ -19,111 +19,131 @@
                             d:DesignHeight="696"
                             d:DesignWidth="480"
                             shell:SystemTray.IsVisible="True">
+
     <phone:PhoneApplicationPage.Resources>
         <ViewModels:CardTypeImageConverter x:Key="CardTypeImageConverter" />
         <ViewModels:CardSetImageConverter x:Key="CardSetImageConverter" />
+        <ViewModels:NameToImageConverter x:Key="NameToImageConverter" />
+
+        <DataTemplate x:Name="CardsListBoxItemTemplate">
+            <Grid Margin="0,0,0,15"
+                  Width="470">
+
+                <Grid.ColumnDefinitions>
+                    <!-- Image, Title, Cost, Cost Image, Potions, Potions Image, Set -->
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <toolkit:ContextMenuService.ContextMenu>
+                    <toolkit:ContextMenu x:Name="ItemContextMenu">
+                        <toolkit:MenuItem x:Name="SwapCardMenuItem"
+                                          Header="swap this card"
+                                          Command="{Binding ElementName=CardsListBox,Path=DataContext.SwapCardCommand}"
+                                          CommandParameter="{Binding}" />
+                    </toolkit:ContextMenu>
+                </toolkit:ContextMenuService.ContextMenu>
+
+                <!-- Card Symbol -->
+                <Image Width="15"
+                       Height="15"
+                       Margin="5,0,15,0"
+                       Source="{Binding Converter={StaticResource CardTypeImageConverter}}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
+
+                <!-- Card Name -->
+                <TextBlock Grid.Column="1"
+                           Text="{Binding Name}"
+                           HorizontalAlignment="Left"
+                           FontSize="32"
+                           VerticalAlignment="Center" />
+
+                <!-- Cost -->
+                <TextBlock Style="{StaticResource PhoneTextNormalStyle}"
+                           Text="{Binding Cost}"
+                           Grid.Column="2"
+                           HorizontalAlignment="Center"
+                           FontSize="32"
+                           VerticalAlignment="Center" />
+                <Image Grid.Column="3"
+                       Width="27"
+                       Height="27"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Source="/Images/coin.png" />
+
+                <!-- potions -->
+                <TextBlock Style="{StaticResource PhoneTextNormalStyle}"
+                           Text="{Binding PotionCost}"
+                           HorizontalAlignment="Center"
+                           FontSize="32"
+                           Grid.Column="4"
+                           VerticalAlignment="Center" />
+                <Image Grid.Column="5"
+                       Width="27"
+                       Height="27"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Source="/Images/potion.png" />
+
+                <!-- set -->
+                <Image Grid.Column="6"
+                       Width="27"
+                       Height="27"
+                       Margin="25,0,0,0"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Source="{Binding Set, Converter={StaticResource CardSetImageConverter}}" />
+
+            </Grid>
+
+        </DataTemplate>
+
     </phone:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid Background="Transparent">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
 
-        <TextBlock Text="Kingdom Cards"
-                   FontSize="56"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Top"
-                   Margin="0,0,0,15" />
+        <Grid x:Name="CardsListDisplayArea">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
 
-        <ListBox ItemsSource="{Binding Cards}"
-                 Grid.Row="1"
-                 x:Name="CardsListBox"
-                 SelectedItem="{Binding SelectedCard, Mode=TwoWay}"
-                 ScrollViewer.VerticalScrollBarVisibility="Disabled">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid Margin="0,0,0,15"
-                          Width="470">
+            <TextBlock Text="Kingdom Cards"
+                       FontSize="56"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       Margin="0,0,0,15" />
 
-                        <Grid.ColumnDefinitions>
-                            <!-- Image, Title, Cost, Cost Image, Potions, Potions Image, Set -->
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
+            <ListBox ItemsSource="{Binding Cards}"
+                     Grid.Row="1"
+                     x:Name="CardsListBox"
+                     SelectedItem="{Binding SelectedCard, Mode=TwoWay}"
+                     ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                     MouseLeftButtonUp="CardsListBox_MouseLeftButtonUp"
+                     ItemTemplate="{StaticResource CardsListBoxItemTemplate}" />
+        </Grid>
 
-                        <toolkit:ContextMenuService.ContextMenu>
-                            <toolkit:ContextMenu x:Name="ItemContextMenu">
-                                <toolkit:MenuItem x:Name="SwapCardMenuItem"
-                                                  Header="swap this card"
-                                                  Command="{Binding ElementName=CardsListBox,Path=DataContext.SwapCardCommand}"
-                                                  CommandParameter="{Binding}" />
-                            </toolkit:ContextMenu>
-                        </toolkit:ContextMenuService.ContextMenu>
-
-                        <!-- Card Symbol -->
-                        <Image Width="15"
-                               Height="15"
-                               Margin="5,0,15,0"
-                               Source="{Binding Converter={StaticResource CardTypeImageConverter}}"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center" />
-
-                        <!-- Card Name -->
-                        <TextBlock Grid.Column="1"
-                                   Text="{Binding Name}"
-                                   HorizontalAlignment="Left"
-                                   FontSize="32"
-                                   VerticalAlignment="Center" />
-
-                        <!-- Cost -->
-                        <TextBlock Style="{StaticResource PhoneTextNormalStyle}"
-                                   Text="{Binding Cost}"
-                                   Grid.Column="2"
-                                   HorizontalAlignment="Center"
-                                   FontSize="32"
-                                   VerticalAlignment="Center" />
-                        <Image Grid.Column="3"
-                               Width="27"
-                               Height="27"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               Source="/Images/coin.png" />
-
-                        <!-- potions -->
-                        <TextBlock Style="{StaticResource PhoneTextNormalStyle}"
-                                   Text="{Binding PotionCost}"
-                                   HorizontalAlignment="Center"
-                                   FontSize="32"
-                                   Grid.Column="4"
-                                   VerticalAlignment="Center" />
-                        <Image Grid.Column="5"
-                               Width="27"
-                               Height="27"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               Source="/Images/potion.png" />
-
-                        <!-- set -->
-                        <Image Grid.Column="6"
-                               Width="27"
-                               Height="27"
-                               Margin="25,0,0,0"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               Source="{Binding Set, Converter={StaticResource CardSetImageConverter}}" />
-
+        <Button x:Name="CardImageButton"
+                Visibility="Collapsed"
+                Click="CardImageButton_Click"
+                Height="800"
+                Width="480">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid>
+                        <Image Source="{Binding ElementName=CardsListBox, Path=SelectedItem, Mode=TwoWay, Converter={StaticResource NameToImageConverter}}" />
                     </Grid>
-
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
     </Grid>
 
@@ -133,6 +153,10 @@
                                             Text="Refresh"
                                             IconUri="/Icons/dark/appbar.refresh.rest.png"
                                             Click="RefreshButton_Click" />
+            <shell:ApplicationBarIconButton Text="Settings"
+                                            IconUri="/Icons/dark/appbar.feature.settings.rest.png"
+                                            x:Name="SettingsButton"
+                                            Click="SettingsButton_Click" />
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 

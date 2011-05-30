@@ -16,12 +16,12 @@
       <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
     </Capabilities>
     <Tasks>
-      <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
+      <DefaultTask Name="_default" NavigationPage="CardListPage.xaml" />
     </Tasks>
     <Tokens>
       <PrimaryToken TokenID="DominionKingdomDeckToken" TaskName="_default">
         <TemplateType5>
-          <BackgroundImageURI IsRelative="true" IsResource="false">Background.png</BackgroundImageURI>
+          <BackgroundImageURI IsRelative="true" IsResource="false">ApplicationIcon.png</BackgroundImageURI>
           <Count>0</Count>
           <Title>Dominionizer</Title>
         </TemplateType5>

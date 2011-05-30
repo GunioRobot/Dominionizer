@@ -55,18 +55,15 @@
                     </Custom:Interaction.Triggers>
                 </Button>
             </StackPanel>
-            <StackPanel Grid.Row="1">
-                <Button Content="Settings">
-                    <Custom:Interaction.Triggers>
-                        <Custom:EventTrigger EventName="Click">
-                            <ic:NavigateToPageAction TargetPage="/SettingsPage.xaml" />
-                        </Custom:EventTrigger>
-                    </Custom:Interaction.Triggers>
-
-                </Button>
-            </StackPanel>
         </Grid>
 
     </Grid>
-
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBarIconButton Text="Settings"
+                                            IconUri="/Icons/dark/appbar.feature.settings.rest.png"
+                                            x:Name="SettingsButton"
+                                            Click="SettingsButton_Click" />
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 </phone:PhoneApplicationPage>
