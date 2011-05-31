@@ -62,6 +62,7 @@
     <Reference Include="GalaSoft.MvvmLight.WP7">
       <HintPath>..\packages\MvvmLight.3.0.0.29166\lib\WP7\GalaSoft.MvvmLight.WP7.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Devices.Sensors" />
     <Reference Include="Microsoft.Expression.Interactions, Version=3.7.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Controls, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />

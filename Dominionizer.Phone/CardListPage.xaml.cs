@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+using Dominionizer;
 using Dominionizer.Messages;
 using Dominionizer.Phone.Core;
 using GalaSoft.MvvmLight.Messaging;
@@ -38,15 +42,6 @@ namespace DominionKingdomDeck
             Messenger.Default.Send<GenerateCardListMessage>(new GenerateCardListMessage());
         }
 
-        private void CardsListBox_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            var card = CardsListBox.SelectedItem as Card;
-            Debug.WriteLine(String.Format("/Images/Cards/{0}/{1}.jpg", card.Set, card.Name.Replace(" ", "").ToLower()));
-            if (card == null)
-                return;
-            HideCardsList();
-        }
-
         private void CardImageButton_Click(object sender, RoutedEventArgs e)
         {
             ShowCardsList();
@@ -74,6 +69,32 @@ namespace DominionKingdomDeck
             else
             {
                 base.OnBackKeyPress(e);
+            }
+        }
+
+        private void ViewCardMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (CardsListBox.SelectedItem == null)
+            {
+                Debug.WriteLine("Null card selected");
+                return;
+            }
+            HideCardsList();
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Point tmpPoint = e.GetPosition(null);
+            List<UIElement> oControls = (List<UIElement>)VisualTreeHelper.FindElementsInHostCoordinates(tmpPoint, this);
+            foreach (UIElement ctrl in oControls)
+            {
+                if (ctrl is ListBoxItem)
+                {
+                    var control = (ListBoxItem)ctrl;
+                    CardsListBox.SelectedItem = control.Content;
+                    break;
+                }
+                Debug.WriteLine("No item found!");
             }
         }
     }

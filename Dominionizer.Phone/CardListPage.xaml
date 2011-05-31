@@ -27,7 +27,8 @@
 
         <DataTemplate x:Name="CardsListBoxItemTemplate">
             <Grid Margin="0,0,0,15"
-                  Width="470">
+                  Width="470"
+                  MouseLeftButtonDown="Grid_MouseLeftButtonDown">
 
                 <Grid.ColumnDefinitions>
                     <!-- Image, Title, Cost, Cost Image, Potions, Potions Image, Set -->
@@ -46,6 +47,9 @@
                                           Header="swap this card"
                                           Command="{Binding ElementName=CardsListBox,Path=DataContext.SwapCardCommand}"
                                           CommandParameter="{Binding}" />
+                        <toolkit:MenuItem x:Name="ViewCardMenuItem"
+                                          Header="view card"
+                                          Click="ViewCardMenuItem_Click" />
                     </toolkit:ContextMenu>
                 </toolkit:ContextMenuService.ContextMenu>
 
@@ -127,7 +131,6 @@
                      x:Name="CardsListBox"
                      SelectedItem="{Binding SelectedCard, Mode=TwoWay}"
                      ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                     MouseLeftButtonUp="CardsListBox_MouseLeftButtonUp"
                      ItemTemplate="{StaticResource CardsListBoxItemTemplate}" />
         </Grid>
 
@@ -139,7 +142,7 @@
             <Button.Template>
                 <ControlTemplate>
                     <Grid>
-                        <Image Source="{Binding ElementName=CardsListBox, Path=SelectedItem, Mode=TwoWay, Converter={StaticResource NameToImageConverter}}" />
+                        <Image Source="{Binding SelectedCard, Mode=TwoWay, Converter={StaticResource NameToImageConverter}}" />
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
