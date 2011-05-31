@@ -69,5 +69,10 @@ namespace Dominionizer.Phone.Core
         {
             return Name;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

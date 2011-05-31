@@ -8,7 +8,7 @@ namespace Dominionizer.Web.Core
     {
         public Cards()
         {
-            this.AddRange(new BaseCards());
+            this.AddRange(new DominionCards());
             this.AddRange(new AlchemyCards());
             this.AddRange(new IntrigueCards());
             this.AddRange(new PromoCards());

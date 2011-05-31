@@ -46,7 +46,7 @@
             var gameGeneratorParameters = new GameGeneratorParameters
                 {
                     Alchemy = parameters.Alchemy,
-                    Base = parameters.Base,
+                    Dominion = parameters.Base,
                     Intrigue = parameters.Intrigue,
                     Promo = parameters.Promo,
                     Prosperity = parameters.Prosperity,

@@ -122,7 +122,7 @@ namespace Dominionizer.Web.Core
             if (parameters.Alchemy)
                 availableCards.AddRange(cards.Where(x => x.Set == CardSet.Alchemy));
 
-            if (parameters.Base)
+            if (parameters.Dominion)
                 availableCards.AddRange(cards.Where(x => x.Set == CardSet.Base));
 
             if (parameters.Intrigue)
@@ -143,7 +143,7 @@ namespace Dominionizer.Web.Core
 
     public class GameGeneratorParameters
     {
-        public bool Base { get; set; }
+        public bool Dominion { get; set; }
 
         public bool Alchemy { get; set; }
 
@@ -164,7 +164,7 @@ namespace Dominionizer.Web.Core
         /// </summary>
         public GameGeneratorParameters()
         {
-            Base = true;
+            this.Dominion = true;
         }
     }
 }

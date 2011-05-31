@@ -131,10 +131,11 @@ namespace Dominionizer.Phone.Core
 
             // Regular Sets
             if (parameters.FindSet("Alchemy").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Alchemy));
-            if (parameters.FindSet("Base").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Dominion));
+            if (parameters.FindSet("Dominion").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Dominion));
             if (parameters.FindSet("Intrigue").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Intrigue));
             if (parameters.FindSet("Prosperity").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Prosperity));
             if (parameters.FindSet("Seaside").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Seaside));
+            if (parameters.FindSet("Cornucopia").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Cornucopia));
 
             // Promo Cards
             if (parameters.FindSet("BlackMarket").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.BlackMarket));
@@ -219,10 +220,6 @@ namespace Dominionizer.Phone.Core
         public GameGeneratorRule FindRule(string ruleKey)
         {
             return Rules.Where(rule => rule.Key == ruleKey).First();
-        }
-
-        public GameGeneratorParameters()
-        {
         }
 
         //TODO: Can we use the CardSet class here, it is an enum of all available cardsets?  Exampe Set = CardSet.Dominion

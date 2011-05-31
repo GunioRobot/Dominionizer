@@ -12,7 +12,7 @@
         {
             var game = new GameGenerator();
             var parameters = (GameGeneratorParameters.GetInstance());
-            parameters.FindSet("Base").IsSet = true;
+            parameters.FindSet("Dominion").IsSet = true;
             parameters.FindSet("Intrigue").IsSet = true;
 
             var cards = game.GetGameCards(parameters);
@@ -25,7 +25,7 @@
         {
             var game = new GameGenerator();
             var parameters = GameGeneratorParameters.GetInstance();
-            parameters.FindSet("Base").IsSet = true;
+            parameters.FindSet("Dominion").IsSet = true;
             parameters.FindRule("TwoToFiveCostCards").IsSet = true;
 
             var cards = game.GetGameCards(parameters);
@@ -41,7 +41,7 @@
         {
             var game = new GameGenerator();
             var parameters = GameGeneratorParameters.GetInstance();
-            parameters.FindSet("Base").IsSet = true;
+            parameters.FindSet("Dominion").IsSet = true;
             parameters.FindRule("RequireReactionToAttack").IsSet = true;
 
             var cards = game.GetGameCards(parameters);
@@ -57,7 +57,7 @@
         {
             var game = new GameGenerator();
             var parameters = GameGeneratorParameters.GetInstance();
-            parameters.FindSet("Base").IsSet = true;
+            parameters.FindSet("Dominion").IsSet = true;
             parameters.FindRule("RequireTwoToFiveCostCards").IsSet = true;
             parameters.FindRule("RequireReactionToAttack").IsSet = true;
 
