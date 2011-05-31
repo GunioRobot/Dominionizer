@@ -2,13 +2,15 @@ namespace Dominionizer.Phone.Core
 {
     public enum CardSet
     {
-        Alchemy = 0,
-        Base = 1,
-        Intrigue = 2,
-        Prosperity = 3,
-        Seaside = 4,
-        BlackMarket = 100,
-        Envoy = 101,
-        Stash = 102
+        Dominion = 100,
+        Intrigue = 200,
+        Seaside = 300,
+        Alchemy = 400,
+        Prosperity = 500,
+        Cornucopia = 600,
+
+        BlackMarket = 1001,
+        Envoy = 1002,
+        Stash = 1003
     }
 }

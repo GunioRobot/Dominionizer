@@ -9,11 +9,12 @@ namespace Dominionizer.Phone.Core
         public Cards()
         {
             // Standard Sets
-            this.AddRange(new BaseCards());
-            this.AddRange(new AlchemyCards());
+            this.AddRange(new DominionCards());
             this.AddRange(new IntrigueCards());
-            this.AddRange(new ProsperityCards());
             this.AddRange(new SeasideCards());
+            this.AddRange(new AlchemyCards());
+            this.AddRange(new ProsperityCards());
+            this.AddRange(new CornucopiaCards());
 
             // Promo Cards
             this.AddRange(new BlackMarketCards());

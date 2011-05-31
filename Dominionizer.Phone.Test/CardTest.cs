@@ -7,9 +7,9 @@ namespace Dominionizer.Phone.Test
     [TestClass]
     public class CardTest
     {
-        private readonly Card card1 = new Card(1, CardSet.Base, "TestCard", 0, 0, CardType.Action);
-        private readonly Card card2 = new Card(1, CardSet.Base, "TestCard", 0, 0, CardType.Action);
-        private readonly Card card3 = new Card(3, CardSet.Base, "TestCard", 0, 0, CardType.Action);
+        private readonly Card card1 = new Card(1, CardSet.Dominion, "TestCard", 0, 0, CardType.Action);
+        private readonly Card card2 = new Card(1, CardSet.Dominion, "TestCard", 0, 0, CardType.Action);
+        private readonly Card card3 = new Card(3, CardSet.Dominion, "TestCard", 0, 0, CardType.Action);
         
         [TestMethod]
         public void TwoCardsAreTheSame()

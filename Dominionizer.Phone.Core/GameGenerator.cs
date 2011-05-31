@@ -131,7 +131,7 @@ namespace Dominionizer.Phone.Core
 
             // Regular Sets
             if (parameters.FindSet("Alchemy").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Alchemy));
-            if (parameters.FindSet("Base").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Base));
+            if (parameters.FindSet("Base").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Dominion));
             if (parameters.FindSet("Intrigue").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Intrigue));
             if (parameters.FindSet("Prosperity").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Prosperity));
             if (parameters.FindSet("Seaside").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Seaside));
@@ -225,17 +225,21 @@ namespace Dominionizer.Phone.Core
         {
         }
 
+        //TODO: Can we use the CardSet class here, it is an enum of all available cardsets?  Exampe Set = CardSet.Dominion
         public static GameGeneratorParameters GetInstance()
         {
             var parms = new GameGeneratorParameters();
-            parms.Sets.Add(new GameGeneratorSet() { Key = "Base", Name = "Base", IsSet = true });
-            parms.Sets.Add(new GameGeneratorSet() { Key = "Alchemy", Name = "Alchemy", IsSet = false });
+            parms.Sets.Add(new GameGeneratorSet() { Key = "Dominion", Name = "Dominion", IsSet = true });
             parms.Sets.Add(new GameGeneratorSet() { Key = "Intrigue", Name = "Intrigue", IsSet = false });
-            parms.Sets.Add(new GameGeneratorSet() { Key = "Prosperity", Name = "Prosperity", IsSet = false });
             parms.Sets.Add(new GameGeneratorSet() { Key = "Seaside", Name = "Seaside", IsSet = false });
+            parms.Sets.Add(new GameGeneratorSet() { Key = "Alchemy", Name = "Alchemy", IsSet = false });
+            parms.Sets.Add(new GameGeneratorSet() { Key = "Prosperity", Name = "Prosperity", IsSet = false });
+            parms.Sets.Add(new GameGeneratorSet() { Key = "Cornucopia", Name = "Cornucopia", IsSet = false });
+            
             parms.Sets.Add(new GameGeneratorSet() { Key = "BlackMarket", Name = "Black Market", IsSet = false });
             parms.Sets.Add(new GameGeneratorSet() { Key = "Envoy", Name = "Envoy", IsSet = false });
             parms.Sets.Add(new GameGeneratorSet() { Key = "Stash", Name = "Stash", IsSet = false });
+            
             parms.Rules.Add(new GameGeneratorRule() { Key = "RequireTwoToFiveCostCards", Name = "Require Two To Five Cost Cards", IsSet = false });
             parms.Rules.Add(new GameGeneratorRule() { Key = "RequireReactionToAttack", Name = "Require Reaction To Attack", IsSet = false });
             return parms;

@@ -41,7 +41,8 @@
     <Compile Include="Game.cs" />
     <Compile Include="SaveGames\DominionGames.cs" />
     <Compile Include="Sets\AlchemyCards.cs" />
-    <Compile Include="Sets\BaseCards.cs" />
+    <Compile Include="Sets\DominionCards.cs" />
+    <Compile Include="Sets\CornucopiaCards.cs" />
     <Compile Include="Sets\IntrigueCards.cs" />
     <Compile Include="Sets\PromoCards.cs" />
     <Compile Include="Sets\ProsperityCards.cs" />
