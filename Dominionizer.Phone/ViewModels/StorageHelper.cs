@@ -7,6 +7,8 @@ using Newtonsoft.Json;
 
 namespace Dominionizer.ViewModels
 {
+    using System.Linq;
+
     public class StorageHelper
     {
         private readonly static string filename = "settings.dat";
@@ -28,6 +30,33 @@ namespace Dominionizer.ViewModels
         }
 
         public static GameGeneratorParameters LoadGameParameters()
+        {
+            var parameters = GameGeneratorParameters.GetInstance();
+
+            var storedParameters = GetGameParametersFromStorage();
+
+            if (storedParameters.Sets.Count > 0)
+            {
+                foreach (var set in parameters.Sets)
+                {
+                    var storedSet = storedParameters.Sets.Where(x => x.Name == set.Name).First();
+                    set.IsSet = storedSet.IsSet;
+                }
+            }
+
+            if (storedParameters.Rules.Count > 0)
+            {
+                foreach (var rule in parameters.Rules)
+                {
+                    var storedRule = storedParameters.Rules.Where(x => x.Name == rule.Name).First();
+                    rule.IsSet = storedRule.IsSet;
+                }
+            }
+
+            return parameters;
+        }
+
+        private static GameGeneratorParameters GetGameParametersFromStorage()
         {
             using (IsolatedStorageFile isf = IsolatedStorageFile.GetUserStoreForApplication())
             {

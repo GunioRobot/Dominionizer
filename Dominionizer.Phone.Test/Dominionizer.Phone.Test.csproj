@@ -59,7 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dominionizer.Phone.Core\Dominionizer.Phone.Core.csproj">
-      <Project>{A6E18AE1-847D-4BB1-B8FB-7257B89E1CA4}</Project>
+      <Project>{41963AF7-84AB-4744-99B8-AF7E1FD727E8}</Project>
       <Name>Dominionizer.Phone.Core</Name>
     </ProjectReference>
   </ItemGroup>
