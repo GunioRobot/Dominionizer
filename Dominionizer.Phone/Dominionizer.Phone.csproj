@@ -374,79 +374,79 @@
     <Content Include="Images\Cards\Alchemy\vineyard.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\adventurer.jpg">
+    <Content Include="Images\Cards\Diminion\adventurer.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\bureaucrat.jpg">
+    <Content Include="Images\Cards\Diminion\bureaucrat.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\cellar.jpg">
+    <Content Include="Images\Cards\Diminion\cellar.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\chancellor.jpg">
+    <Content Include="Images\Cards\Diminion\chancellor.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\chapel.jpg">
+    <Content Include="Images\Cards\Diminion\chapel.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\councilroom.jpg">
+    <Content Include="Images\Cards\Diminion\councilroom.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\feast.jpg">
+    <Content Include="Images\Cards\Diminion\feast.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\festival.jpg">
+    <Content Include="Images\Cards\Diminion\festival.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\gardens.jpg">
+    <Content Include="Images\Cards\Diminion\gardens.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\laboratory.jpg">
+    <Content Include="Images\Cards\Diminion\laboratory.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\library.jpg">
+    <Content Include="Images\Cards\Diminion\library.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\market.jpg">
+    <Content Include="Images\Cards\Diminion\market.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\militia.jpg">
+    <Content Include="Images\Cards\Diminion\militia.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\mine.jpg">
+    <Content Include="Images\Cards\Diminion\mine.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\moat.jpg">
+    <Content Include="Images\Cards\Diminion\moat.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\moneylender.jpg">
+    <Content Include="Images\Cards\Diminion\moneylender.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\remodel.jpg">
+    <Content Include="Images\Cards\Diminion\remodel.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\smithy.jpg">
+    <Content Include="Images\Cards\Diminion\smithy.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\spy.jpg">
+    <Content Include="Images\Cards\Diminion\spy.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\thief.jpg">
+    <Content Include="Images\Cards\Diminion\thief.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\throneroom.jpg">
+    <Content Include="Images\Cards\Diminion\throneroom.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\village.jpg">
+    <Content Include="Images\Cards\Diminion\village.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\witch.jpg">
+    <Content Include="Images\Cards\Diminion\witch.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\woodcutter.jpg">
+    <Content Include="Images\Cards\Diminion\woodcutter.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Base\workshop.jpg">
+    <Content Include="Images\Cards\Diminion\workshop.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Cards\Common\copper.jpg">

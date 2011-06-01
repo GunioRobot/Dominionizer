@@ -241,9 +241,9 @@ namespace Dominionizer.Phone.Core
             //parms.Sets.Add(new GameGeneratorSet() { Key = "Prosperity", Name = "Prosperity", IsSet = false });
             //parms.Sets.Add(new GameGeneratorSet() { Key = "Cornucopia", Name = "Cornucopia", IsSet = false });
             
-            parms.Sets.Add(new GameGeneratorSet() { Key = "BlackMarket", Name = "Black Market", IsSet = false });
-            parms.Sets.Add(new GameGeneratorSet() { Key = "Envoy", Name = "Envoy", IsSet = false });
-            parms.Sets.Add(new GameGeneratorSet() { Key = "Stash", Name = "Stash", IsSet = false });
+            //parms.Sets.Add(new GameGeneratorSet() { Key = "BlackMarket", Name = "Black Market", IsSet = false });
+            //parms.Sets.Add(new GameGeneratorSet() { Key = "Envoy", Name = "Envoy", IsSet = false });
+            //parms.Sets.Add(new GameGeneratorSet() { Key = "Stash", Name = "Stash", IsSet = false });
             
             parms.Rules.Add(new GameGeneratorRule() { Key = "RequireTwoToFiveCostCards", Name = "Require Two To Five Cost Cards", IsSet = false });
             parms.Rules.Add(new GameGeneratorRule() { Key = "RequireReactionToAttack", Name = "Require Reaction To Attack", IsSet = false });
