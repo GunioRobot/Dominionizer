@@ -226,12 +226,20 @@ namespace Dominionizer.Phone.Core
         public static GameGeneratorParameters GetInstance()
         {
             var parms = new GameGeneratorParameters();
-            parms.Sets.Add(new GameGeneratorSet() { Key = "Dominion", Name = "Dominion", IsSet = true });
-            parms.Sets.Add(new GameGeneratorSet() { Key = "Intrigue", Name = "Intrigue", IsSet = false });
-            parms.Sets.Add(new GameGeneratorSet() { Key = "Seaside", Name = "Seaside", IsSet = false });
-            parms.Sets.Add(new GameGeneratorSet() { Key = "Alchemy", Name = "Alchemy", IsSet = false });
-            parms.Sets.Add(new GameGeneratorSet() { Key = "Prosperity", Name = "Prosperity", IsSet = false });
-            parms.Sets.Add(new GameGeneratorSet() { Key = "Cornucopia", Name = "Cornucopia", IsSet = false });
+
+            var cardSets = Enum<CardSet>.GetNames();
+
+            foreach (var cardSet in cardSets)
+            {
+                parms.Sets.Add(new GameGeneratorSet() { Key = cardSet, Name = cardSet, IsSet = (cardSet == "Dominion") });
+            }
+
+            //parms.Sets.Add(new GameGeneratorSet() { Key = "Dominion", Name = "Dominion", IsSet = true });
+            //parms.Sets.Add(new GameGeneratorSet() { Key = "Intrigue", Name = "Intrigue", IsSet = false });
+            //parms.Sets.Add(new GameGeneratorSet() { Key = "Seaside", Name = "Seaside", IsSet = false });
+            //parms.Sets.Add(new GameGeneratorSet() { Key = "Alchemy", Name = "Alchemy", IsSet = false });
+            //parms.Sets.Add(new GameGeneratorSet() { Key = "Prosperity", Name = "Prosperity", IsSet = false });
+            //parms.Sets.Add(new GameGeneratorSet() { Key = "Cornucopia", Name = "Cornucopia", IsSet = false });
             
             parms.Sets.Add(new GameGeneratorSet() { Key = "BlackMarket", Name = "Black Market", IsSet = false });
             parms.Sets.Add(new GameGeneratorSet() { Key = "Envoy", Name = "Envoy", IsSet = false });

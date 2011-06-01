@@ -39,7 +39,10 @@ namespace Dominionizer.ViewModels
             {
                 foreach (var set in parameters.Sets)
                 {
-                    var storedSet = storedParameters.Sets.Where(x => x.Name == set.Name).First();
+                    var storedSet = storedParameters.Sets.Where(x => x.Name == set.Name).FirstOrDefault();
+
+                    if (storedSet == null) continue;
+                        
                     set.IsSet = storedSet.IsSet;
                 }
             }
@@ -49,6 +52,9 @@ namespace Dominionizer.ViewModels
                 foreach (var rule in parameters.Rules)
                 {
                     var storedRule = storedParameters.Rules.Where(x => x.Name == rule.Name).First();
+
+                    if (storedRule == null) continue;
+                    
                     rule.IsSet = storedRule.IsSet;
                 }
             }

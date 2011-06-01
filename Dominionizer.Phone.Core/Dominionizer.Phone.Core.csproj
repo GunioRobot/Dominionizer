@@ -52,6 +52,7 @@
     <Compile Include="Cards.cs" />
     <Compile Include="CardSet.cs" />
     <Compile Include="CardType.cs" />
+    <Compile Include="Enum.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
