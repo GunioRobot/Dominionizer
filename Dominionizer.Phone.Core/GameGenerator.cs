@@ -222,31 +222,27 @@ namespace Dominionizer.Phone.Core
             return Rules.Where(rule => rule.Key == ruleKey).First();
         }
 
-        //TODO: Can we use the CardSet class here, it is an enum of all available cardsets?  Exampe Set = CardSet.Dominion
         public static GameGeneratorParameters GetInstance()
         {
             var parms = new GameGeneratorParameters();
 
+            // Add Card Sets
             var cardSets = Enum<CardSet>.GetNames();
-
             foreach (var cardSet in cardSets)
             {
-                parms.Sets.Add(new GameGeneratorSet() { Key = cardSet, Name = cardSet, IsSet = (cardSet == "Dominion") });
+                parms.Sets.Add(new GameGeneratorSet() { Key = cardSet, Name = Utils.CamelCaseToProperSpace(cardSet), IsSet = (cardSet == "Dominion") });
             }
 
-            //parms.Sets.Add(new GameGeneratorSet() { Key = "Dominion", Name = "Dominion", IsSet = true });
-            //parms.Sets.Add(new GameGeneratorSet() { Key = "Intrigue", Name = "Intrigue", IsSet = false });
-            //parms.Sets.Add(new GameGeneratorSet() { Key = "Seaside", Name = "Seaside", IsSet = false });
-            //parms.Sets.Add(new GameGeneratorSet() { Key = "Alchemy", Name = "Alchemy", IsSet = false });
-            //parms.Sets.Add(new GameGeneratorSet() { Key = "Prosperity", Name = "Prosperity", IsSet = false });
-            //parms.Sets.Add(new GameGeneratorSet() { Key = "Cornucopia", Name = "Cornucopia", IsSet = false });
+            //Add Game Rules
+            var rules = Enum<GameRules>.GetNames();
+            foreach (var rule in rules)
+            {
+                parms.Rules.Add(new GameGeneratorRule() { Key = rule, Name = Utils.CamelCaseToProperSpace(rule), IsSet = false });
+            }
             
-            //parms.Sets.Add(new GameGeneratorSet() { Key = "BlackMarket", Name = "Black Market", IsSet = false });
-            //parms.Sets.Add(new GameGeneratorSet() { Key = "Envoy", Name = "Envoy", IsSet = false });
-            //parms.Sets.Add(new GameGeneratorSet() { Key = "Stash", Name = "Stash", IsSet = false });
-            
-            parms.Rules.Add(new GameGeneratorRule() { Key = "RequireTwoToFiveCostCards", Name = "Require Two To Five Cost Cards", IsSet = false });
-            parms.Rules.Add(new GameGeneratorRule() { Key = "RequireReactionToAttack", Name = "Require Reaction To Attack", IsSet = false });
+            // parms.Rules.Add(new GameGeneratorRule() { Key = "RequireTwoToFiveCostCards", Name = "Require Two To Five Cost Cards", IsSet = false });
+            // parms.Rules.Add(new GameGeneratorRule() { Key = "RequireReactionToAttack", Name = "Require Reaction To Attack", IsSet = false });
+
             return parms;
         }
     }
