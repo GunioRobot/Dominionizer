@@ -19,8 +19,13 @@ namespace Dominionizer.Phone.Core
 
         private void LoadBuildInGames()
         {
-            BuiltInGames.AddRange(new DominionGames());
+            this.BuiltInGames.AddRange(new DominionGames());
+            this.BuiltInGames.AddRange(new IntrigueGames());
+            this.BuiltInGames.AddRange(new SeasideGames());
+            this.BuiltInGames.AddRange(new AlchemyGames());
 
+            // this.BuiltInGames.AddRange(new ProsperityGames());
+            // this.BuiltInGames.AddRange(new CornucopiaGames());
         }
 
         private void LoadUesrDefinedGames()

@@ -58,7 +58,10 @@
     <Compile Include="GameRules.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SavedGames.cs" />
+    <Compile Include="SaveGames\AlchemyGames.cs" />
     <Compile Include="SaveGames\DominionGames.cs" />
+    <Compile Include="SaveGames\IntrigueGames.cs" />
+    <Compile Include="SaveGames\SeasideGames.cs" />
     <Compile Include="Sets\AlchemyCards.cs" />
     <Compile Include="Sets\CornucopiaCards.cs" />
     <Compile Include="Sets\DominionCards.cs" />
