@@ -10,11 +10,6 @@ namespace Dominionizer
         public SettingsPage()
         {
             InitializeComponent();
-            Messenger.Default.Register<SettingsSavedMessage>(this, (message) =>
-            {
-                //if (NavigationService.CanGoBack)
-                //    NavigationService.GoBack();
-            });
         }
 
         protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
