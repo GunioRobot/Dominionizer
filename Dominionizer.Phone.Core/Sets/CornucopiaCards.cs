@@ -15,7 +15,7 @@ namespace Dominionizer.Phone.Core.Sets
 
             this.Add(new Card(602, CardSet.Cornucopia, "Fortune Teller", 3, 0, CardType.Attack));
 
-            this.Add(new Card(603, CardSet.Cornucopia, "Menagrie", 3, 0, CardType.Action));
+            this.Add(new Card(603, CardSet.Cornucopia, "Menagerie", 3, 0, CardType.Action));
 
             this.Add(new Card(604, CardSet.Cornucopia, "Farming Village", 4, 0, CardType.Action));
 

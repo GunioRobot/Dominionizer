@@ -55,6 +55,7 @@
     <Compile Include="Enum.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameGenerator.cs" />
+    <Compile Include="GameRules.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SavedGames.cs" />
     <Compile Include="SaveGames\DominionGames.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Sets\PromoCards.cs" />
     <Compile Include="Sets\ProsperityCards.cs" />
     <Compile Include="Sets\SeasideCards.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
