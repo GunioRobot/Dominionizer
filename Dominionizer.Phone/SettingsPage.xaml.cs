@@ -12,8 +12,8 @@ namespace Dominionizer
             InitializeComponent();
             Messenger.Default.Register<SettingsSavedMessage>(this, (message) =>
             {
-                if (NavigationService.CanGoBack)
-                    NavigationService.GoBack();
+                //if (NavigationService.CanGoBack)
+                //    NavigationService.GoBack();
             });
         }
 
