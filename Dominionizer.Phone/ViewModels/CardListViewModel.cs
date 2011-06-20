@@ -18,6 +18,9 @@ namespace Dominionizer.ViewModels
         [XmlIgnore]
         public RelayCommand GenerateCardList { get; private set; }
 
+        [XmlIgnore]
+        public RelayCommand<Card> SwapCardCommand { get; private set; }
+
         private GameGeneratorParameters _parameters;
         private GameGenerator _generator = new GameGenerator();
 
@@ -37,8 +40,6 @@ namespace Dominionizer.ViewModels
             Messenger.Default.Register<GenerateCardListMessage>(this, (message) => GenerateCardListForSettings());
             Messenger.Default.Register<SwapCardMessage>(this, (message) => SwapCard(message.SelectedCard));
         }
-
-        public RelayCommand<Card> SwapCardCommand { get; private set; }
 
         private void SwapCard(Card card)
         {

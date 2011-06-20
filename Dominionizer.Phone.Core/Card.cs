@@ -2,6 +2,9 @@ namespace Dominionizer.Phone.Core
 {
     public class Card
     {
+        public Card()
+        { }
+
         public Card(
             int id,
             CardSet cardSet,
@@ -30,15 +33,25 @@ namespace Dominionizer.Phone.Core
         }
 
         public int Id { get; set; }
+
         public CardSet Set { get; set; }
+
         public string Name { get; set; }
+
         public string ActionText { get; set; }
+
         public int AdditionalActions { get; set; }
+
         public int AdditionalBuys { get; set; }
+
         public int AdditinalCards { get; set; }
+
         public int AdditionalCoin { get; set; }
+
         public int Cost { get; set; }
+
         public int PotionCost { get; set; }
+
         public CardType Type { get; set; }
 
         public override bool Equals(object obj)
@@ -59,7 +72,7 @@ namespace Dominionizer.Phone.Core
 
             return (a.Id == b.Id);
         }
-            
+
         public static bool operator !=(Card a, Card b)
         {
             return !(a == b);

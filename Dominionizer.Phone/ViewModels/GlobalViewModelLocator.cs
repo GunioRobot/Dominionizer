@@ -20,6 +20,8 @@ namespace Dominionizer.ViewModels
     public class GlobalViewModelLocator
     {
         private const string STR_CardListViewModel = "CardListViewModel";
+        private const string STR_SettingsViewModel = "SettingsViewModel";
+
         private IsolatedStorageSettings settings;
 
         public GlobalViewModelLocator()
@@ -227,6 +229,18 @@ namespace Dominionizer.ViewModels
                         }
                     }
                 }
+                if (store.FileExists(STR_SettingsViewModel))
+                {
+                    using (var stream = store.OpenFile(STR_SettingsViewModel, FileMode.Open))
+                    {
+                        using (var reader = new StreamReader(stream))
+                        {
+                            var data = reader.ReadToEnd();
+                            var serializer = new XmlSerializer(typeof(SettingsViewModel));
+                            _settingsViewModel = (SettingsViewModel)serializer.Deserialize(new StringReader(data));
+                        }
+                    }
+                }
             }
         }
 
@@ -243,6 +257,14 @@ namespace Dominionizer.ViewModels
                 {
                     var serializer = new XmlSerializer(typeof(CardListViewModel));
                     serializer.Serialize(fs, CardListViewModel);
+                }
+
+                if (store.FileExists(STR_SettingsViewModel))
+                    store.DeleteFile(STR_SettingsViewModel);
+                using (var fs = store.CreateFile(STR_SettingsViewModel))
+                {
+                    var serializer = new XmlSerializer(typeof(SettingsViewModel));
+                    serializer.Serialize(fs, SettingsViewModel);
                 }
             }
         }
