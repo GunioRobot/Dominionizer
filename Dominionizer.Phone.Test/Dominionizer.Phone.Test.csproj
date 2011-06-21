@@ -54,8 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CardTest.cs" />
+    <Compile Include="MockSaveGameRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GameGeneratorTest.cs" />
+    <Compile Include="SaveGameTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dominionizer.Phone.Core\Dominionizer.Phone.Core.csproj">

@@ -57,11 +57,11 @@
     <Compile Include="GameGenerator.cs" />
     <Compile Include="GameRules.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SavedGames.cs" />
-    <Compile Include="SaveGames\AlchemyGames.cs" />
-    <Compile Include="SaveGames\DominionGames.cs" />
-    <Compile Include="SaveGames\IntrigueGames.cs" />
-    <Compile Include="SaveGames\SeasideGames.cs" />
+    <Compile Include="SaveGames\BuiltInSaveGames.cs" />
+    <Compile Include="SaveGames\ISaveGameRepository.cs" />
+    <Compile Include="SaveGames\SaveGameManager.cs" />
+    <Compile Include="SaveGames\SaveGameSource.cs" />
+    <Compile Include="SaveGames\SaveGame.cs" />
     <Compile Include="Sets\AlchemyCards.cs" />
     <Compile Include="Sets\CornucopiaCards.cs" />
     <Compile Include="Sets\DominionCards.cs" />
