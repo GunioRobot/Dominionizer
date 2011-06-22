@@ -1,14 +1,12 @@
 ﻿using System;
 using System.IO;
 using System.IO.IsolatedStorage;
-using System.Xml.Serialization;
+using System.Linq;
 using Dominionizer.Phone.Core;
 using Newtonsoft.Json;
 
 namespace Dominionizer.ViewModels
 {
-    using System.Linq;
-
     public class StorageHelper
     {
         private readonly static string filename = "settings.dat";
@@ -42,7 +40,7 @@ namespace Dominionizer.ViewModels
                     var storedSet = storedParameters.Sets.Where(x => x.Name == set.Name).FirstOrDefault();
 
                     if (storedSet == null) continue;
-                        
+
                     set.IsSet = storedSet.IsSet;
                 }
             }
@@ -54,7 +52,7 @@ namespace Dominionizer.ViewModels
                     var storedRule = storedParameters.Rules.Where(x => x.Name == rule.Name).First();
 
                     if (storedRule == null) continue;
-                    
+
                     rule.IsSet = storedRule.IsSet;
                 }
             }

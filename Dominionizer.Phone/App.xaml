@@ -3,11 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
              xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+             xmlns:UriMapper="clr-namespace:System.Windows.Navigation;assembly=Microsoft.Phone"
              xmlns:ViewModels="clr-namespace:Dominionizer.ViewModels">
 
     <!--Application Resources-->
     <Application.Resources>
         <ViewModels:GlobalViewModelLocator x:Key="Locator" />
+        <!--Simple UriMapper that will be programmatically updated to point to the right page at runtime -->
+        <UriMapper:UriMapper x:Name="mapper">
+            <UriMapper:UriMapping Uri="/MainPage.xaml" />
+        </UriMapper:UriMapper>
+
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Windows.Data;
+using Dominionizer.Phone.Core;
 
 namespace Dominionizer.ViewModels
 {
-    using Dominionizer.Phone.Core;
-
     public class CardTypeImageConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

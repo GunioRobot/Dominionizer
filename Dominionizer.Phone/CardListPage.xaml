@@ -11,7 +11,7 @@
                             xmlns:local="clr-namespace:Dominionizer.ViewModels"
                             xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
                             xmlns:ViewModels="clr-namespace:Dominionizer.ViewModels"
-                            x:Class="DominionKingdomDeck.CardListPage"
+                            x:Class="Dominionizer.CardListPage"
                             DataContext="{Binding Path=CardListViewModel, Source={StaticResource Locator}}"
                             SupportedOrientations="Portrait"
                             Orientation="Portrait"
@@ -126,12 +126,21 @@
                        VerticalAlignment="Top"
                        Margin="0,0,0,15" />
 
+            <TextBlock Grid.Row="1"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="36"
+                       TextWrapping="Wrap"
+                       Visibility="{Binding ShowInstructions}"
+                       Text="Press the refresh button to generate a card list or press the settings button to set up your decks" />
+
             <ListBox ItemsSource="{Binding Cards}"
                      Grid.Row="1"
                      x:Name="CardsListBox"
                      SelectedItem="{Binding SelectedCard, Mode=TwoWay}"
                      ScrollViewer.VerticalScrollBarVisibility="Disabled"
                      ItemTemplate="{StaticResource CardsListBoxItemTemplate}" />
+
         </Grid>
 
         <Button x:Name="CardImageButton"

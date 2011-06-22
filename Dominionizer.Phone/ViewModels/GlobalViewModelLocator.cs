@@ -1,15 +1,4 @@
-﻿/*
-  In App.xaml:
-  <Application.Resources>
-      <vm:GlobalViewModelLocator xmlns:vm="clr-namespace:DominionKingdomDeck.ViewModels"
-                                   x:Key="Locator" />
-  </Application.Resources>
-
-  In the View:
-  DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
-*/
-
-using System;
+﻿using System;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Xml.Serialization;

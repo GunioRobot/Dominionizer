@@ -1,8 +1,8 @@
+using System.Windows;
+using System.Windows.Media;
+
 namespace Dominionizer
 {
-    using System.Windows;
-    using System.Windows.Media;
-
     public enum PhoneTheme
     {
         Light,
@@ -11,7 +11,8 @@ namespace Dominionizer
 
     public static class PhoneUtil
     {
-        private static Color darkThemeBackground = Color.FromArgb(255, 0, 0, 0); 
+        private static Color darkThemeBackground = Color.FromArgb(255, 0, 0, 0);
+
         public static PhoneTheme DetectTheme()
         {
             var backgroundBrush = Application.Current.Resources["PhoneBackgroundBrush"] as SolidColorBrush;

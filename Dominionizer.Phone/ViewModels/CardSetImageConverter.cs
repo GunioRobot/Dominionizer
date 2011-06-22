@@ -3,9 +3,6 @@ using System.Windows.Data;
 
 namespace Dominionizer.ViewModels
 {
-    using System.Windows;
-    using System.Windows.Media;
-
     public class CardSetImageConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

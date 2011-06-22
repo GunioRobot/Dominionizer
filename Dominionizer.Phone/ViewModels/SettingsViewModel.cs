@@ -1,7 +1,6 @@
 ﻿using Dominionizer.Messages;
 using Dominionizer.Phone.Core;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 
 namespace Dominionizer.ViewModels

@@ -23,7 +23,6 @@ namespace Dominionizer
         {
             // Global handler for uncaught exceptions.
             UnhandledException += Application_UnhandledException;
-
             // Standard Silverlight initialization
             InitializeComponent();
 
@@ -33,7 +32,6 @@ namespace Dominionizer
             InitializePhoneApplication();
         }
 
-        // Code to execute when the application is launching (eg, from Start)
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {

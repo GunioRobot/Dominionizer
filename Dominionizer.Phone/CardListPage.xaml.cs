@@ -4,13 +4,11 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using Dominionizer;
 using Dominionizer.Messages;
-using Dominionizer.Phone.Core;
 using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Phone.Controls;
 
-namespace DominionKingdomDeck
+namespace Dominionizer
 {
     public partial class CardListPage : PhoneApplicationPage
     {
@@ -34,7 +32,8 @@ namespace DominionKingdomDeck
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            GenerateCardList();
+            //if (CardsListBox.Items.Count == 0)
+            //    NavigationService.Navigate(new Uri("/SettingsPage.xaml", UriKind.Relative));
         }
 
         private void GenerateCardList()
@@ -51,12 +50,14 @@ namespace DominionKingdomDeck
         {
             CardImageButton.Visibility = Visibility.Visible;
             CardsListDisplayArea.Visibility = Visibility.Collapsed;
+            ApplicationBar.IsVisible = false;
         }
 
         private void ShowCardsList()
         {
             CardsListDisplayArea.Visibility = Visibility.Visible;
             CardImageButton.Visibility = Visibility.Collapsed;
+            ApplicationBar.IsVisible = true;
         }
 
         protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)

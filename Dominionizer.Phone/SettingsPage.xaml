@@ -52,7 +52,6 @@
                              ItemTemplate="{StaticResource CheckBoxListItemTemplate}" />
                 </controls:PivotItem>
             </controls:Pivot>
-
         </Grid>
 
     </Grid>
