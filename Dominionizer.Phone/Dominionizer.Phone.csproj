@@ -90,9 +90,6 @@
     <Compile Include="CardListPage.xaml.cs">
       <DependentUpon>CardListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CardTest.xaml.cs">
-      <DependentUpon>CardTest.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Messages\GenerateCardListMessage.cs" />
     <Compile Include="Messages\OpenSettingsPageMessage.cs" />
     <Compile Include="Messages\SaveSettingsMessage.cs" />
@@ -121,10 +118,6 @@
     <Page Include="CardListPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="CardTest.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SettingsPage.xaml">
       <SubType>Designer</SubType>
