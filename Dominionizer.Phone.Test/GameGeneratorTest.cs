@@ -26,7 +26,7 @@
             var game = new GameGenerator();
             var parameters = GameGeneratorParameters.GetInstance();
             parameters.FindSet("Dominion").IsSet = true;
-            parameters.FindRule("TwoToFiveCostCards").IsSet = true;
+            parameters.FindRule("RequireTwoToFiveCostCards").IsSet = true;
 
             var cards = game.GetGameCards(parameters);
 

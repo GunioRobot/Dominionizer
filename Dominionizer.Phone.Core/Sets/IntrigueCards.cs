@@ -40,6 +40,7 @@ namespace Dominionizer.Phone.Core.Sets
 
             this.Add(new Card(223, CardSet.Intrigue, "Harem", 6, 0, CardType.Victory));
             this.Add(new Card(224, CardSet.Intrigue, "Nobles", 6, 0, CardType.Victory));
+            this.Add(new Card(225, CardSet.Intrigue, "Coppersmith", 4, 0, CardType.Action));
         }
     }
 }
