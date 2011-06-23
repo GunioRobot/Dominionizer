@@ -126,14 +126,6 @@
                        VerticalAlignment="Top"
                        Margin="0,0,0,15" />
 
-            <TextBlock Grid.Row="1"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       FontSize="36"
-                       TextWrapping="Wrap"
-                       Visibility="{Binding ShowInstructions}"
-                       Text="Press the refresh button to generate a card list or press the settings button to set up your decks" />
-
             <ListBox ItemsSource="{Binding Cards}"
                      Grid.Row="1"
                      x:Name="CardsListBox"

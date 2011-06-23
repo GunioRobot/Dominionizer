@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Navigation;
+using Dominionizer.Messages;
 using Dominionizer.ViewModels;
+using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Threading;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
@@ -35,6 +37,7 @@ namespace Dominionizer
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+            Messenger.Default.Send<GenerateCardListMessage>(new GenerateCardListMessage());
         }
 
         // Code to execute when the application is activated (brought to foreground)

@@ -52,7 +52,6 @@ namespace Dominionizer.ViewModels
 
         private void GenerateCardListForSettings()
         {
-            ShowInstructions = Visibility.Collapsed;
             var cards = _generator.GetGameCards(_parameters);
             Cards.Clear();
             foreach (var item in cards)
@@ -117,37 +116,5 @@ namespace Dominionizer.ViewModels
         }
 
         #endregion Cards property
-
-        /// <summary>
-        /// The <see cref="ShowInstructions" /> property's name.
-        /// </summary>
-        public const string ShowInstructionsPropertyName = "ShowInstructions";
-
-        private Visibility _showInstructions = Visibility.Visible;
-
-        /// <summary>
-        /// Gets the ShowInstructions property.
-        /// TODO Update documentation:
-        /// Changes to that property's value raise the PropertyChanged event.
-        /// This property's value is broadcasted by the Messenger's default instance when it changes.
-        /// </summary>
-        public Visibility ShowInstructions
-        {
-            get
-            {
-                return _showInstructions;
-            }
-
-            set
-            {
-                if (_showInstructions == value)
-                {
-                    return;
-                }
-
-                _showInstructions = value;
-                RaisePropertyChanged(ShowInstructionsPropertyName);
-            }
-        }
     }
 }
