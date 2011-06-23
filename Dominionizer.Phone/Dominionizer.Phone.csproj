@@ -90,6 +90,9 @@
     <Compile Include="CardListPage.xaml.cs">
       <DependentUpon>CardListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CardTest.xaml.cs">
+      <DependentUpon>CardTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Messages\GenerateCardListMessage.cs" />
     <Compile Include="Messages\OpenSettingsPageMessage.cs" />
     <Compile Include="Messages\SaveSettingsMessage.cs" />
@@ -118,6 +121,10 @@
     <Page Include="CardListPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CardTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SettingsPage.xaml">
       <SubType>Designer</SubType>
@@ -328,421 +335,391 @@
     <Content Include="Icons\light\appbar.upload.rest.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Alchemy\alchemist.jpg">
+    <Content Include="Images\Cards\adventurer.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Alchemy\apothecary.jpg">
+    <Content Include="Images\Cards\alchemist.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Alchemy\apprentice.jpg">
+    <Content Include="Images\Cards\ambassador.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Alchemy\familiar.jpg">
+    <Content Include="Images\Cards\apothecary.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Alchemy\golem.jpg">
+    <Content Include="Images\Cards\apprentice.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Alchemy\herbalist.jpg">
+    <Content Include="Images\Cards\bank.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Alchemy\philosophersstone.jpg">
+    <Content Include="Images\Cards\baron.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Alchemy\possession.jpg">
+    <Content Include="Images\Cards\bazaar.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Alchemy\potion.jpg">
+    <Content Include="Images\Cards\bishop.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Alchemy\scryingpool.jpg">
+    <Content Include="Images\Cards\blackmarket.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Alchemy\transmute.jpg">
+    <Content Include="Images\Cards\bridge.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Alchemy\university.jpg">
+    <Content Include="Images\Cards\bureaucrat.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Alchemy\vineyard.jpg">
+    <Content Include="Images\Cards\caravan.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Cornucopia\fairgrounds.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Cards\Cornucopia\farmingvillage.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Cards\Cornucopia\fortuneteller.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Cards\Cornucopia\hamlet.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Cards\Cornucopia\harvest.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Cards\Cornucopia\hornofplenty.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Cards\Cornucopia\horsetraders.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Cards\Cornucopia\huntingparty.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Cards\Cornucopia\jester.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Cards\Cornucopia\menagerie.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Cards\Cornucopia\remake.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Images\Cards\cellar.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Cornucopia\tournament.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Images\Cards\chancellor.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Cornucopia\youngwitch.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Images\Cards\chapel.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\adventurer.jpg">
+    <Content Include="Images\Cards\city.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\bureaucrat.jpg">
+    <Content Include="Images\Cards\conspirator.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\cellar.jpg">
+    <Content Include="Images\Cards\coppersmith.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\chancellor.jpg">
+    <Content Include="Images\Cards\councilroom.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\chapel.jpg">
+    <Content Include="Images\Cards\courtyard.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\councilroom.jpg">
+    <Content Include="Images\Cards\cutpurse.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\feast.jpg">
+    <Content Include="Images\Cards\duke.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\festival.jpg">
+    <Content Include="Images\Cards\embargo.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\gardens.jpg">
+    <Content Include="Images\Cards\envoy.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\laboratory.jpg">
+    <Content Include="Images\Cards\expand.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\library.jpg">
+    <Content Include="Images\Cards\explorer.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\market.jpg">
+    <Content Include="Images\Cards\fairgrounds.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\militia.jpg">
+    <Content Include="Images\Cards\familiar.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\mine.jpg">
+    <Content Include="Images\Cards\farmingvillage.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\moat.jpg">
+    <Content Include="Images\Cards\feast.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\moneylender.jpg">
+    <Content Include="Images\Cards\festival.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\remodel.jpg">
+    <Content Include="Images\Cards\fishingvillage.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\smithy.jpg">
+    <Content Include="Images\Cards\forge.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\spy.jpg">
+    <Content Include="Images\Cards\fortuneteller.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\thief.jpg">
+    <Content Include="Images\Cards\gardens.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\throneroom.jpg">
+    <Content Include="Images\Cards\ghostship.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\village.jpg">
+    <Content Include="Images\Cards\golem.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\witch.jpg">
+    <Content Include="Images\Cards\goons.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\woodcutter.jpg">
+    <Content Include="Images\Cards\grandmarket.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Dominion\workshop.jpg">
+    <Content Include="Images\Cards\greathall.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Common\copper.jpg">
+    <Content Include="Images\Cards\hamlet.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Common\curse.jpg">
+    <Content Include="Images\Cards\harem.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Common\duchy.jpg">
+    <Content Include="Images\Cards\harvest.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Common\estate.jpg">
+    <Content Include="Images\Cards\haven.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Common\gold.jpg">
+    <Content Include="Images\Cards\herbalist.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Common\province.jpg">
+    <Content Include="Images\Cards\hoard.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Common\silver.jpg">
+    <Content Include="Images\Cards\hornofplenty.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\baron.jpg">
+    <Content Include="Images\Cards\horsetraders.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\bridge.jpg">
+    <Content Include="Images\Cards\huntingparty.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\conspirator.jpg">
+    <Content Include="Images\Cards\ironworks.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\coppersmith.jpg">
+    <Content Include="Images\Cards\island.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\courtyard.jpg">
+    <Content Include="Images\Cards\jester.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\duke.jpg">
+    <Content Include="Images\Cards\kingscourt.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\greathall.jpg">
+    <Content Include="Images\Cards\laboratory.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\harem.jpg">
+    <Content Include="Images\Cards\library.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\ironworks.jpg">
+    <Content Include="Images\Cards\lighthouse.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\masquerade.jpg">
+    <Content Include="Images\Cards\loan.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\miningvillage.jpg">
+    <Content Include="Images\Cards\lookout.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\minion.jpg">
+    <Content Include="Images\Cards\market.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\nobles.jpg">
+    <Content Include="Images\Cards\masquerade.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\pawn.jpg">
+    <Content Include="Images\Cards\menagerie.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\saboteur.jpg">
+    <Content Include="Images\Cards\merchantship.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\scout.jpg">
+    <Content Include="Images\Cards\militia.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\secretchamber.jpg">
+    <Content Include="Images\Cards\mine.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\shantytown.jpg">
+    <Content Include="Images\Cards\miningvillage.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\steward.jpg">
+    <Content Include="Images\Cards\minion.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\swindler.jpg">
+    <Content Include="Images\Cards\mint.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\torturer.jpg">
+    <Content Include="Images\Cards\moat.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\tradingpost.jpg">
+    <Content Include="Images\Cards\moneylender.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\tribute.jpg">
+    <Content Include="Images\Cards\monument.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\upgrade.jpg">
+    <Content Include="Images\Cards\mountebank.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Intrigue\wishingwell.jpg">
+    <Content Include="Images\Cards\nativevillage.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\BlackMarket\blackmarket.jpg">
+    <Content Include="Images\Cards\navigator.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Envoy\envoy.jpg">
+    <Content Include="Images\Cards\nobles.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Stash\stash.jpg">
+    <Content Include="Images\Cards\outpost.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\bank.jpg">
+    <Content Include="Images\Cards\pawn.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\bishop.jpg">
+    <Content Include="Images\Cards\pearldiver.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\city.jpg">
+    <Content Include="Images\Cards\peddler.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\colony.jpg">
+    <Content Include="Images\Cards\philosophersstone.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\contraband.jpg">
+    <Content Include="Images\Cards\pirateship.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\countinghouse.jpg">
+    <Content Include="Images\Cards\possession.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\expand.jpg">
+    <Content Include="Images\Cards\contraband.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\forge.jpg">
+    <Content Include="Images\Cards\countinghouse.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\goons.jpg">
+    <Content Include="Images\Cards\quarry.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\grandmarket.jpg">
+    <Content Include="Images\Cards\rabble.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\hoard.jpg">
+    <Content Include="Images\Cards\remake.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\kingscourt.jpg">
+    <Content Include="Images\Cards\remodel.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\loan.jpg">
+    <Content Include="Images\Cards\royalseal.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\mint.jpg">
+    <Content Include="Images\Cards\saboteur.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\monument.jpg">
+    <Content Include="Images\Cards\salvager.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\mountebank.jpg">
+    <Content Include="Images\Cards\scout.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\peddler.jpg">
+    <Content Include="Images\Cards\scryingpool.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\platinum.jpg">
+    <Content Include="Images\Cards\seahag.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\quarry.jpg">
+    <Content Include="Images\Cards\secretchamber.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\rabble.jpg">
+    <Content Include="Images\Cards\shantytown.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\royalseal.jpg">
+    <Content Include="Images\Cards\smithy.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\talisman.jpg">
+    <Content Include="Images\Cards\smugglers.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\traderoute.jpg">
+    <Content Include="Images\Cards\spy.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\vault.jpg">
+    <Content Include="Images\Cards\stash.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\venture.jpg">
+    <Content Include="Images\Cards\steward.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\watchtower.jpg">
+    <Content Include="Images\Cards\swindler.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Prosperity\workersvillage.jpg">
+    <Content Include="Images\Cards\tactician.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\ambassador.jpg">
+    <Content Include="Images\Cards\talisman.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\bazaar.jpg">
+    <Content Include="Images\Cards\thief.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\caravan.jpg">
+    <Content Include="Images\Cards\throneroom.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\cutpurse.jpg">
+    <Content Include="Images\Cards\torturer.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\embargo.jpg">
+    <Content Include="Images\Cards\tournament.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\explorer.jpg">
+    <Content Include="Images\Cards\traderoute.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\fishingvillage.jpg">
+    <Content Include="Images\Cards\tradingpost.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\ghostship.jpg">
+    <Content Include="Images\Cards\transmute.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\haven.jpg">
+    <Content Include="Images\Cards\treasuremap.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\island.jpg">
+    <Content Include="Images\Cards\treasury.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\lighthouse.jpg">
+    <Content Include="Images\Cards\tribute.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\lookout.jpg">
+    <Content Include="Images\Cards\university.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\merchantship.jpg">
+    <Content Include="Images\Cards\upgrade.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\nativevillage.jpg">
+    <Content Include="Images\Cards\vault.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\navigator.jpg">
+    <Content Include="Images\Cards\venture.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\outpost.jpg">
+    <Content Include="Images\Cards\village.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\pearldiver.jpg">
+    <Content Include="Images\Cards\vineyard.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\pirateship.jpg">
+    <Content Include="Images\Cards\warehouse.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\salvager.jpg">
+    <Content Include="Images\Cards\watchtower.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\seahag.jpg">
+    <Content Include="Images\Cards\wharf.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\smugglers.jpg">
+    <Content Include="Images\Cards\wishingwell.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\tactician.jpg">
+    <Content Include="Images\Cards\witch.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\treasuremap.jpg">
+    <Content Include="Images\Cards\woodcutter.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\treasury.jpg">
+    <Content Include="Images\Cards\workersvillage.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\warehouse.jpg">
+    <Content Include="Images\Cards\workshop.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cards\Seaside\wharf.jpg">
+    <Content Include="Images\Cards\youngwitch.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\potion.png">

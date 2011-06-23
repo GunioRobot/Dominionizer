@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Media.Imaging;
 using System.Xml.Serialization;
 using Dominionizer.Messages;
 using Dominionizer.Phone.Core;

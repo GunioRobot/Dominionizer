@@ -239,7 +239,7 @@ namespace Dominionizer.Phone.Core
             {
                 parms.Rules.Add(new GameGeneratorRule() { Key = rule, Name = Utils.CamelCaseToProperSpace(rule), IsSet = false });
             }
-            
+
             // parms.Rules.Add(new GameGeneratorRule() { Key = "RequireTwoToFiveCostCards", Name = "Require Two To Five Cost Cards", IsSet = false });
             // parms.Rules.Add(new GameGeneratorRule() { Key = "RequireReactionToAttack", Name = "Require Reaction To Attack", IsSet = false });
 

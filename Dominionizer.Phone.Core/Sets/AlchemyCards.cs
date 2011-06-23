@@ -13,7 +13,7 @@ namespace Dominionizer.Phone.Core.Sets
         {
             // Alchemy 400
             this.Add(new Card(401, CardSet.Alchemy, "Transmute", 0, 1, CardType.Action));
-            this.Add(new Card(402, CardSet.Alchemy, "Vinyard", 0, 1, CardType.Victory));
+            this.Add(new Card(402, CardSet.Alchemy, "Vineyard", 0, 1, CardType.Victory));
 
             this.Add(new Card(403, CardSet.Alchemy, "Apothecary", 2, 1, CardType.Action));
             this.Add(new Card(404, CardSet.Alchemy, "Herbalist", 2, 0, CardType.Action));
@@ -29,7 +29,7 @@ namespace Dominionizer.Phone.Core.Sets
 
             this.Add(new Card(412, CardSet.Alchemy, "Apprentice", 5, 0, CardType.Action));
 
-            this.Add(new Card(413, CardSet.Alchemy, "Possesion", 6, 1, CardType.Action));
+            this.Add(new Card(413, CardSet.Alchemy, "Possession", 6, 1, CardType.Action));
         }
     }
 }

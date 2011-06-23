@@ -12,7 +12,10 @@ namespace Dominionizer.ViewModels
             Card card = value as Card;
             if (card == null)
                 return null;
-            var path = String.Format("/Images/Cards/{0}/{1}.jpg", card.Set, card.Name.Replace(" ", "").ToLower());
+            var cardName = card.Name.Replace(" ", "")
+                                    .Replace("'", "")
+                                    .ToLower();
+            var path = String.Format("/Images/Cards/{0}.jpg", cardName);
             return new BitmapImage(new Uri(path, UriKind.Relative));
         }
 
