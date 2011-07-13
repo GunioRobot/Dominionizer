@@ -120,11 +120,11 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Kingdom Cards"
+            <TextBlock Text="Dominionizer"
                        FontSize="56"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Top"
-                       Margin="0,0,0,15" />
+                       Margin="6,0,79,0" Width="395" />
 
             <ListBox ItemsSource="{Binding Cards}"
                      Grid.Row="1"
