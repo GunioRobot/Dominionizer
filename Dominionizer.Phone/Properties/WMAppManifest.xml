@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.0">
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
   <App xmlns="" ProductID="{7be1ce44-df8a-4206-94e9-99511fed2a0e}" Title="Dominionizer" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Jay and Chris" Description="Card list generator for Dominion" Publisher="JayAndChris">
     <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
     <Capabilities>
