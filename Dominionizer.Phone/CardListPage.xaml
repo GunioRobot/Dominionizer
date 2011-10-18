@@ -6,7 +6,6 @@
                             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                             xmlns:ic="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
                             xmlns:Custom="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-                            xmlns:GalaSoft_MvvmLight_Command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP7"
                             xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
                             xmlns:local="clr-namespace:Dominionizer.ViewModels"
                             xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
@@ -16,9 +15,9 @@
                             SupportedOrientations="Portrait"
                             Orientation="Portrait"
                             mc:Ignorable="d"
+                            shell:SystemTray.IsVisible="True"
                             d:DesignHeight="696"
-                            d:DesignWidth="480"
-                            shell:SystemTray.IsVisible="True">
+                            d:DesignWidth="480">
 
     <phone:PhoneApplicationPage.Resources>
         <ViewModels:CardTypeImageConverter x:Key="CardTypeImageConverter" />
@@ -26,10 +25,8 @@
         <ViewModels:NameToImageConverter x:Key="NameToImageConverter" />
 
         <DataTemplate x:Name="CardsListBoxItemTemplate">
-            <Grid Margin="0,0,0,15"
-                  Width="470"
+            <Grid Margin="0,10,0,0"
                   MouseLeftButtonDown="Grid_MouseLeftButtonDown">
-
                 <Grid.ColumnDefinitions>
                     <!-- Image, Title, Cost, Cost Image, Potions, Potions Image, Set -->
                     <ColumnDefinition Width="Auto" />
@@ -63,10 +60,10 @@
 
                 <!-- Card Name -->
                 <TextBlock Grid.Column="1"
-                           Text="{Binding Name}"
-                           HorizontalAlignment="Left"
-                           FontSize="32"
-                           VerticalAlignment="Center" />
+                           Width="250"
+                           FontSize="24"
+                           VerticalAlignment="Center"
+                           Text="{Binding Name}" />
 
                 <!-- Cost -->
                 <TextBlock Style="{StaticResource PhoneTextNormalStyle}"
@@ -120,18 +117,19 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Dominionizer"
+            <TextBlock Text="Dominionizer v2.0"
                        FontSize="56"
-                       HorizontalAlignment="Center"
+                       HorizontalAlignment="Left"
                        VerticalAlignment="Top"
-                       Margin="6,0,79,0" Width="395" />
+                       Margin="12,0,0,0" />
 
             <ListBox ItemsSource="{Binding Cards}"
                      Grid.Row="1"
                      x:Name="CardsListBox"
                      SelectedItem="{Binding SelectedCard, Mode=TwoWay}"
                      ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                     ItemTemplate="{StaticResource CardsListBoxItemTemplate}" />
+                     ItemTemplate="{StaticResource CardsListBoxItemTemplate}"
+                     Margin="12,0" />
 
         </Grid>
 
@@ -149,6 +147,41 @@
             </Button.Template>
         </Button>
 
+        <Popup IsOpen="False"
+               Margin="60,200"
+               x:Name="SortOptionPopup">
+            <Border BorderBrush="{StaticResource PhoneBackgroundBrush}"
+                    Background="{StaticResource PhoneForegroundBrush}"
+                    CornerRadius="24"
+                    BorderThickness="2">
+                <Grid Margin="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Select Sort Option"
+                               Margin="20"
+                               Foreground="{StaticResource PhoneAccentBrush}"
+                               FontSize="32" />
+                    <ListBox FontSize="38"
+                             Grid.Row="1"
+                             HorizontalAlignment="Center"
+                             Foreground="{StaticResource PhoneBackgroundBrush}"
+                             ItemsSource="{Binding SortStrategies}"
+                             SelectedItem="{Binding SelectedSortStrategy, Mode=TwoWay}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Width="250"
+                                           Text="{Binding SortField}"
+                                           TextAlignment="Center" />
+
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </Border>
+        </Popup>
+
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>
@@ -161,6 +194,10 @@
                                             IconUri="/Icons/dark/appbar.feature.settings.rest.png"
                                             x:Name="SettingsButton"
                                             Click="SettingsButton_Click" />
+            <shell:ApplicationBarIconButton Text="Sort"
+                                            IconUri="/Icons/appbar.download.rest.png"
+                                            x:Name="SortButton"
+                                            Click="SortButton_Click" />
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 

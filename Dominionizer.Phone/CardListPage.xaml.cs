@@ -29,13 +29,6 @@ namespace Dominionizer
             GenerateCardList();
         }
 
-        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            //if (CardsListBox.Items.Count == 0)
-            //    NavigationService.Navigate(new Uri("/SettingsPage.xaml", UriKind.Relative));
-        }
-
         private void GenerateCardList()
         {
             Messenger.Default.Send<GenerateCardListMessage>(new GenerateCardListMessage());
@@ -67,10 +60,14 @@ namespace Dominionizer
                 ShowCardsList();
                 e.Cancel = true;
             }
-            else
+
+            if (SortOptionPopup.IsOpen)
             {
-                base.OnBackKeyPress(e);
+                SortOptionPopup.IsOpen = false;
+                Messenger.Default.Send<SortCardListMessage>(new SortCardListMessage());
             }
+
+            base.OnBackKeyPress(e);
         }
 
         private void ViewCardMenuItem_Click(object sender, RoutedEventArgs e)
@@ -97,6 +94,12 @@ namespace Dominionizer
                 }
                 Debug.WriteLine("No item found!");
             }
+        }
+
+        private void SortButton_Click(object sender, EventArgs e)
+        {
+            HideCardsList();
+            SortOptionPopup.IsOpen = true;
         }
     }
 }
