@@ -135,8 +135,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Dominionizer.Phone_2011_11_14_21_15_01.sap" />
-    <None Include="Dominionizer.Phone_2011_11_14_21_16_51.sap" />
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
