@@ -44,15 +44,18 @@ namespace Dominionizer
         // This code will not execute when the application is first launched
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
-            var vml = this.Resources["Locator"] as GlobalViewModelLocator;
-            vml.LoadState();
+            if (!e.IsApplicationInstancePreserved)
+            {
+                var vml = Resources["Locator"] as GlobalViewModelLocator;
+                vml.LoadState();
+            }
         }
 
         // Code to execute when the application is deactivated (sent to background)
         // This code will not execute when the application is closing
         private void Application_Deactivated(object sender, DeactivatedEventArgs e)
         {
-            var vml = this.Resources["Locator"] as GlobalViewModelLocator;
+            var vml = Resources["Locator"] as GlobalViewModelLocator;
             vml.SaveState();
         }
 
@@ -60,6 +63,8 @@ namespace Dominionizer
         // This code will not execute when the application is deactivated
         private void Application_Closing(object sender, ClosingEventArgs e)
         {
+            var vml = Resources["Locator"] as GlobalViewModelLocator;
+            vml.SaveState(SaveCardList: false);
         }
 
         // Code to execute if a navigation fails

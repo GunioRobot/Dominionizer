@@ -129,7 +129,13 @@
                      SelectedItem="{Binding SelectedCard, Mode=TwoWay}"
                      ScrollViewer.VerticalScrollBarVisibility="Disabled"
                      ItemTemplate="{StaticResource CardsListBoxItemTemplate}"
-                     Margin="12,0" />
+                     Margin="12,0">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
 
         </Grid>
 
@@ -174,9 +180,13 @@
                                 <TextBlock Width="250"
                                            Text="{Binding SortField}"
                                            TextAlignment="Center" />
-
                             </DataTemplate>
                         </ListBox.ItemTemplate>
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
                     </ListBox>
                 </Grid>
             </Border>
