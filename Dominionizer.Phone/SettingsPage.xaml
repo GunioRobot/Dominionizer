@@ -7,6 +7,7 @@
                             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                             xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
                             xmlns:Custom="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                            xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
                             FontFamily="{StaticResource PhoneFontFamilyNormal}"
                             FontSize="{StaticResource PhoneFontSizeNormal}"
                             Foreground="{StaticResource PhoneForegroundBrush}"
@@ -23,10 +24,23 @@
           Background="Transparent">
 
         <Grid.Resources>
-            <DataTemplate x:Key="CheckBoxListItemTemplate">
-                <CheckBox IsChecked="{Binding IsSet, Mode=TwoWay}"
-                          Content="{Binding Name}" />
+
+            <DataTemplate x:Key="ToggleButtonListItemTemplate">
+                <toolkit:ToggleSwitch Width="456"
+                                      VerticalAlignment="Top"
+                                      VerticalContentAlignment="Top"
+                                      Content="{Binding Name}"
+                                      Margin="1,0,0,-40"
+                                      IsChecked="{Binding IsSet, Mode=TwoWay}">
+                    <toolkit:ToggleSwitch.ContentTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}"
+                                       TextWrapping="Wrap" />
+                        </DataTemplate>
+                    </toolkit:ToggleSwitch.ContentTemplate>
+                </toolkit:ToggleSwitch>
             </DataTemplate>
+
         </Grid.Resources>
 
         <Grid.RowDefinitions>
@@ -43,12 +57,12 @@
                 <controls:PivotItem Header="Sets">
                     <ListBox x:Name="SetsListBox"
                              ItemsSource="{Binding Parameters.Sets}"
-                             ItemTemplate="{StaticResource CheckBoxListItemTemplate}" />
+                             ItemTemplate="{StaticResource ToggleButtonListItemTemplate}" />
                 </controls:PivotItem>
                 <controls:PivotItem Header="Rules">
                     <ListBox x:Name="RulesListBox"
                              ItemsSource="{Binding Parameters.Rules}"
-                             ItemTemplate="{StaticResource CheckBoxListItemTemplate}" />
+                             ItemTemplate="{StaticResource ToggleButtonListItemTemplate}" />
                 </controls:PivotItem>
             </controls:Pivot>
         </Grid>
