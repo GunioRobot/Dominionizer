@@ -20,6 +20,7 @@ namespace Dominionizer.Phone.Core
             this.AddRange(new BlackMarketCards());
             this.AddRange(new EnvoyCards());
             this.AddRange(new StashCards());
+            this.AddRange(new WalledVilliageCards());
         }
     }
 }
