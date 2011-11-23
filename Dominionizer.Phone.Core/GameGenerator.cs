@@ -36,6 +36,14 @@ namespace Dominionizer.Phone.Core
 
             gameCards.Add(GetLastCard(availableCards, gameCards, parameters));
 
+            // check for young witch and add the card at this time
+            var yw = gameCards.Any(card => card.Name == "Young Witch");
+            if (yw)
+            {
+                var ywCard = GetRandomCards(availableCards, 1).Single();
+                gameCards.Add(ywCard);
+            }
+
             return gameCards;
         }
 
