@@ -42,4 +42,16 @@ namespace Dominionizer.Phone.Core.Sets
         }
     }
 
+    public class WalledVilliageCards : List<Card>
+    {
+        public WalledVilliageCards()
+        {
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            this.Add(new Card(1004, CardSet.WalledVillage, "Walled Village", 4, 0, CardType.Action));
+        }
+    }
 }
