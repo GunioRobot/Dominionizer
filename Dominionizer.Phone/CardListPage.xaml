@@ -20,9 +20,6 @@
                             d:DesignWidth="480">
 
     <phone:PhoneApplicationPage.Resources>
-        <ViewModels:CardTypeImageConverter x:Key="CardTypeImageConverter" />
-        <ViewModels:CardSetImageConverter x:Key="CardSetImageConverter" />
-        <ViewModels:NameToImageConverter x:Key="NameToImageConverter" />
 
         <DataTemplate x:Name="CardsListBoxItemTemplate">
             <Grid Margin="0,10,0,0"
@@ -44,9 +41,6 @@
                                           Header="swap this card"
                                           Command="{Binding ElementName=CardsListBox,Path=DataContext.SwapCardCommand}"
                                           CommandParameter="{Binding}" />
-                        <toolkit:MenuItem x:Name="ViewCardMenuItem"
-                                          Header="view card"
-                                          Click="ViewCardMenuItem_Click" />
                     </toolkit:ContextMenu>
                 </toolkit:ContextMenuService.ContextMenu>
 
@@ -138,20 +132,6 @@
             </ListBox>
 
         </Grid>
-
-        <Button x:Name="CardImageButton"
-                Visibility="Collapsed"
-                Click="CardImageButton_Click"
-                Height="800"
-                Width="480">
-            <Button.Template>
-                <ControlTemplate>
-                    <Grid>
-                        <Image Source="{Binding SelectedCard, Mode=TwoWay, Converter={StaticResource NameToImageConverter}}" />
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
 
         <Popup IsOpen="False"
                Margin="60,200"

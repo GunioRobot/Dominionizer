@@ -34,14 +34,8 @@ namespace Dominionizer
             Messenger.Default.Send<GenerateCardListMessage>(new GenerateCardListMessage());
         }
 
-        private void CardImageButton_Click(object sender, RoutedEventArgs e)
-        {
-            ShowCardsList();
-        }
-
         private void HideCardsList()
         {
-            CardImageButton.Visibility = Visibility.Visible;
             CardsListDisplayArea.Visibility = Visibility.Collapsed;
             ApplicationBar.IsVisible = false;
         }
@@ -49,7 +43,6 @@ namespace Dominionizer
         private void ShowCardsList()
         {
             CardsListDisplayArea.Visibility = Visibility.Visible;
-            CardImageButton.Visibility = Visibility.Collapsed;
             ApplicationBar.IsVisible = true;
         }
 

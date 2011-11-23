@@ -12,6 +12,11 @@
     <!--Application Resources-->
     <Application.Resources>
         <ViewModels:GlobalViewModelLocator x:Key="Locator" />
+
+        <ViewModels:CardTypeImageConverter x:Key="CardTypeImageConverter" />
+        <ViewModels:CardSetImageConverter x:Key="CardSetImageConverter" />
+        <ViewModels:NameToImageConverter x:Key="NameToImageConverter" />
+
         <!--Simple UriMapper that will be programmatically updated to point to the right page at runtime -->
         <UriMapper:UriMapper x:Name="mapper">
             <UriMapper:UriMapping Uri="/MainPage.xaml" />

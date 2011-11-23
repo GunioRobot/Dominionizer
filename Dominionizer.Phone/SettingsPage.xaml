@@ -41,6 +41,30 @@
                 </toolkit:ToggleSwitch>
             </DataTemplate>
 
+            <DataTemplate x:Key="ToggleButtonListItemTemplateWithImage">
+                <toolkit:ToggleSwitch Width="456"
+                                      VerticalAlignment="Top"
+                                      VerticalContentAlignment="Top"
+                                      Content="{Binding Name}"
+                                      Margin="1,0,0,-40"
+                                      IsChecked="{Binding IsSet, Mode=TwoWay}">
+                    <toolkit:ToggleSwitch.ContentTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="27"
+                                       Height="27"
+                                       Margin="0,0,25,0"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Source="{Binding Converter={StaticResource CardSetImageConverter}}" />
+                                <TextBlock Text="{Binding}"
+                                           TextWrapping="Wrap" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </toolkit:ToggleSwitch.ContentTemplate>
+                </toolkit:ToggleSwitch>
+            </DataTemplate>
+
         </Grid.Resources>
 
         <Grid.RowDefinitions>
@@ -57,7 +81,7 @@
                 <controls:PivotItem Header="Sets">
                     <ListBox x:Name="SetsListBox"
                              ItemsSource="{Binding Parameters.Sets}"
-                             ItemTemplate="{StaticResource ToggleButtonListItemTemplate}" />
+                             ItemTemplate="{StaticResource ToggleButtonListItemTemplateWithImage}" />
                 </controls:PivotItem>
                 <controls:PivotItem Header="Rules">
                     <ListBox x:Name="RulesListBox"
