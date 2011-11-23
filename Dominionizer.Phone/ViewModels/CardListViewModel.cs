@@ -20,6 +20,7 @@ namespace Dominionizer.ViewModels
         [XmlIgnore]
         public RelayCommand<Card> SwapCardCommand { get; private set; }
 
+        private string _CardListName;
         private GameGeneratorParameters _parameters;
         private GameGenerator _generator = new GameGenerator();
 
@@ -54,6 +55,7 @@ namespace Dominionizer.ViewModels
 
         private void GenerateCardListForSettings()
         {
+            CardListName = "Random Game";
             var cards = _generator.GetGameCards(_parameters);
             Cards.Clear();
             foreach (var item in cards)
@@ -162,5 +164,21 @@ namespace Dominionizer.ViewModels
         }
 
         #endregion Cards property
+
+        #region CardListName property
+
+        public string CardListName
+        {
+            get { return _CardListName; }
+            set
+            {
+                if (_CardListName == value)
+                    return;
+                _CardListName = value;
+                RaisePropertyChanged(() => CardListName);
+            }
+        }
+
+        #endregion CardListName property
     }
 }

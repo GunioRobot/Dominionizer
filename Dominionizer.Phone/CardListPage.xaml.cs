@@ -94,5 +94,15 @@ namespace Dominionizer
             HideCardsList();
             SortOptionPopup.IsOpen = true;
         }
+
+        private void LoadCardList_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not yet implemented.");
+        }
+
+        private void SaveCardList_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not yet implemented.");
+        }
     }
 }

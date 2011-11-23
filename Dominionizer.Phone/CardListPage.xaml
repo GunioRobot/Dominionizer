@@ -111,8 +111,8 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Dominionizer v2.0"
-                       FontSize="56"
+            <TextBlock Text="{Binding CardListName}"
+                       FontSize="48"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Top"
                        Margin="12,0,0,0" />
@@ -188,6 +188,14 @@
                                             IconUri="/Icons/appbar.download.rest.png"
                                             x:Name="SortButton"
                                             Click="SortButton_Click" />
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="LoadCardList"
+                                              Click="LoadCardList_Click"
+                                              Text="Load Card List" />
+                <shell:ApplicationBarMenuItem x:Name="SaveCardList"
+                                              Click="SaveCardList_Click"
+                                              Text="Save Card List" />
+            </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 
