@@ -65,6 +65,7 @@
     <Compile Include="Sets\AlchemyCards.cs" />
     <Compile Include="Sets\CornucopiaCards.cs" />
     <Compile Include="Sets\DominionCards.cs" />
+    <Compile Include="Sets\HinterlandsCards.cs" />
     <Compile Include="Sets\IntrigueCards.cs" />
     <Compile Include="Sets\PromoCards.cs" />
     <Compile Include="Sets\ProsperityCards.cs" />

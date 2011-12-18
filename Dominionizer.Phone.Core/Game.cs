@@ -1,7 +1,7 @@
+using System.Collections.Generic;
+
 namespace Dominionizer.Phone.Core
 {
-    using System.Collections.Generic;
-
     public class Game
     {
         public int Id { get; set; }

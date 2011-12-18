@@ -144,6 +144,7 @@ namespace Dominionizer.Phone.Core
             if (parameters.FindSet("Prosperity").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Prosperity));
             if (parameters.FindSet("Seaside").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Seaside));
             if (parameters.FindSet("Cornucopia").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Cornucopia));
+            if (parameters.FindSet("Hinterlands").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Hinterlands));
 
             // Promo Cards
             if (parameters.FindSet("BlackMarket").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.BlackMarket));
