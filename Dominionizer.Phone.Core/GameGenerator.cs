@@ -36,6 +36,14 @@ namespace Dominionizer.Phone.Core
 
             gameCards.Add(GetLastCard(availableCards, gameCards, parameters));
 
+            // check for young witch and add the card at this time
+            var yw = gameCards.Any(card => card.Name == "Young Witch");
+            if (yw)
+            {
+                var ywCard = GetRandomCards(availableCards, 1).Single();
+                gameCards.Add(ywCard);
+            }
+
             return gameCards;
         }
 
@@ -136,11 +144,13 @@ namespace Dominionizer.Phone.Core
             if (parameters.FindSet("Prosperity").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Prosperity));
             if (parameters.FindSet("Seaside").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Seaside));
             if (parameters.FindSet("Cornucopia").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Cornucopia));
+            if (parameters.FindSet("Hinterlands").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Hinterlands));
 
             // Promo Cards
             if (parameters.FindSet("BlackMarket").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.BlackMarket));
             if (parameters.FindSet("Envoy").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Envoy));
             if (parameters.FindSet("Stash").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.Stash));
+            if (parameters.FindSet("WalledVillage").IsSet) availableCards.AddRange(cards.Where(x => x.Set == CardSet.WalledVillage));
 
             return availableCards;
         }

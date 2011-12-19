@@ -15,11 +15,13 @@ namespace Dominionizer.Phone.Core
             this.AddRange(new AlchemyCards());
             this.AddRange(new ProsperityCards());
             this.AddRange(new CornucopiaCards());
+            this.AddRange(new HinterlandsCards());
 
             // Promo Cards
             this.AddRange(new BlackMarketCards());
             this.AddRange(new EnvoyCards());
             this.AddRange(new StashCards());
+            this.AddRange(new WalledVilliageCards());
         }
     }
 }

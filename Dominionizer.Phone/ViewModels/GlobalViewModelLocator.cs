@@ -3,6 +3,7 @@ using System.IO;
 using System.IO.IsolatedStorage;
 using System.Xml.Serialization;
 using GalaSoft.MvvmLight;
+using Newtonsoft.Json;
 
 namespace Dominionizer.ViewModels
 {
@@ -204,6 +205,8 @@ namespace Dominionizer.ViewModels
             if (ViewModelBase.IsInDesignModeStatic)
                 return;
 
+            string data;
+
             using (var store = IsolatedStorageFile.GetUserStoreForApplication())
             {
                 if (store.FileExists(STR_CardListViewModel))
@@ -212,11 +215,10 @@ namespace Dominionizer.ViewModels
                     {
                         using (var reader = new StreamReader(stream))
                         {
-                            var data = reader.ReadToEnd();
-                            var serializer = new XmlSerializer(typeof(CardListViewModel));
-                            _gameCardList = (CardListViewModel)serializer.Deserialize(new StringReader(data));
+                            data = reader.ReadToEnd();
                         }
                     }
+                    _gameCardList = JsonConvert.DeserializeObject<CardListViewModel>(data);
                 }
                 if (store.FileExists(STR_SettingsViewModel))
                 {
@@ -224,16 +226,15 @@ namespace Dominionizer.ViewModels
                     {
                         using (var reader = new StreamReader(stream))
                         {
-                            var data = reader.ReadToEnd();
-                            var serializer = new XmlSerializer(typeof(SettingsViewModel));
-                            _settingsViewModel = (SettingsViewModel)serializer.Deserialize(new StringReader(data));
+                            data = reader.ReadToEnd();
                         }
                     }
+                    _settingsViewModel = JsonConvert.DeserializeObject<SettingsViewModel>(data);
                 }
             }
         }
 
-        internal void SaveState()
+        internal void SaveState(bool SaveCardList = true, bool SaveSettings = true)
         {
             if (ViewModelBase.IsInDesignModeStatic)
                 return;
@@ -242,18 +243,21 @@ namespace Dominionizer.ViewModels
             {
                 if (store.FileExists(STR_CardListViewModel))
                     store.DeleteFile(STR_CardListViewModel);
-                using (var fs = store.CreateFile(STR_CardListViewModel))
+
+                if (SaveCardList)
                 {
-                    var serializer = new XmlSerializer(typeof(CardListViewModel));
-                    serializer.Serialize(fs, CardListViewModel);
+                    using (var fs = store.CreateFile(STR_CardListViewModel))
+                    using (var sw = new StreamWriter(fs))
+                        sw.Write(JsonConvert.SerializeObject(CardListViewModel));
                 }
 
                 if (store.FileExists(STR_SettingsViewModel))
                     store.DeleteFile(STR_SettingsViewModel);
-                using (var fs = store.CreateFile(STR_SettingsViewModel))
+                if (SaveSettings)
                 {
-                    var serializer = new XmlSerializer(typeof(SettingsViewModel));
-                    serializer.Serialize(fs, SettingsViewModel);
+                    using (var fs = store.CreateFile(STR_SettingsViewModel))
+                    using (var sw = new StreamWriter(fs))
+                        sw.Write(JsonConvert.SerializeObject(SettingsViewModel));
                 }
             }
         }
