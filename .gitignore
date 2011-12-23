@@ -5,6 +5,10 @@
 *.suo
 *.user
 
+# Phone Performance Results files
+PerformanceLogs/
+*.sap
+
 # Build results
 [Dd]ebug/
 [Rr]elease/

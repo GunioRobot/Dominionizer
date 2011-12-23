@@ -42,12 +42,12 @@
             </DataTemplate>
 
             <DataTemplate x:Key="ToggleButtonListItemTemplateWithImage">
-                <toolkit:ToggleSwitch Width="456"
+                <toolkit:ToggleSwitch Width="438"
                                       VerticalAlignment="Top"
                                       VerticalContentAlignment="Top"
                                       Content="{Binding Name}"
-                                      Margin="1,0,0,-40"
-                                      IsChecked="{Binding IsSet, Mode=TwoWay}">
+                                      Margin="1,0,0,0"
+                                      IsChecked="{Binding IsSet, Mode=TwoWay}" BorderThickness="0">
                     <toolkit:ToggleSwitch.ContentTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">

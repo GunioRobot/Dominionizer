@@ -17,12 +17,12 @@
                             mc:Ignorable="d"
                             shell:SystemTray.IsVisible="True"
                             d:DesignHeight="696"
-                            d:DesignWidth="480">
-
+                            d:DesignWidth="480"
+                            d:DataContext="{d:DesignData /SampleData/CardListViewModelSampleData.xaml}">
     <phone:PhoneApplicationPage.Resources>
 
         <DataTemplate x:Name="CardsListBoxItemTemplate">
-            <Grid Margin="0,10,0,0"
+            <Grid Margin="0,18,0,0"
                   MouseLeftButtonDown="Grid_MouseLeftButtonDown">
                 <Grid.ColumnDefinitions>
                     <!-- Image, Title, Cost, Cost Image, Potions, Potions Image, Set -->
@@ -47,7 +47,7 @@
                 <!-- Card Symbol -->
                 <Image Width="15"
                        Height="15"
-                       Margin="5,0,15,0"
+                       Margin="10,0,15,0"
                        Source="{Binding Converter={StaticResource CardTypeImageConverter}}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" />
@@ -55,7 +55,7 @@
                 <!-- Card Name -->
                 <TextBlock Grid.Column="1"
                            Width="250"
-                           FontSize="24"
+                           FontSize="{StaticResource PhoneFontSizeMediumLarge}"
                            VerticalAlignment="Center"
                            Text="{Binding Name}" />
 
@@ -64,7 +64,7 @@
                            Text="{Binding Cost}"
                            Grid.Column="2"
                            HorizontalAlignment="Center"
-                           FontSize="32"
+                           FontSize="{StaticResource PhoneFontSizeMediumLarge}"
                            VerticalAlignment="Center" />
                 <Image Grid.Column="3"
                        Width="27"
@@ -77,7 +77,7 @@
                 <TextBlock Style="{StaticResource PhoneTextNormalStyle}"
                            Text="{Binding PotionCost}"
                            HorizontalAlignment="Center"
-                           FontSize="32"
+                           FontSize="{StaticResource PhoneFontSizeMediumLarge}"
                            Grid.Column="4"
                            VerticalAlignment="Center" />
                 <Image Grid.Column="5"
@@ -91,7 +91,7 @@
                 <Image Grid.Column="6"
                        Width="27"
                        Height="27"
-                       Margin="25,0,0,0"
+                       Margin="15,0"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Source="{Binding Set, Converter={StaticResource CardSetImageConverter}}" />
@@ -101,9 +101,15 @@
         </DataTemplate>
 
     </phone:PhoneApplicationPage.Resources>
+	<phone:PhoneApplicationPage.Background>
+		<ImageBrush Stretch="Fill"/>
+	</phone:PhoneApplicationPage.Background>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid Background="Transparent">
+    <Grid>
+    	<Grid.Background>
+    		<ImageBrush Stretch="Fill"/>
+    	</Grid.Background>
 
         <Grid x:Name="CardsListDisplayArea">
             <Grid.RowDefinitions>
@@ -114,17 +120,17 @@
 
             <TextBlock Text="Dominionizer!"
                        Grid.Row="0"
-                       FontSize="48"
+                       FontSize="{StaticResource PhoneFontSizeMediumLarge}"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Top"
                        Margin="12,0,10,0" />
 
             <TextBlock Text="{Binding CardListName}"
                        Grid.Row="1"
-                       FontSize="32"
+                       FontSize="{StaticResource PhoneFontSizeLarge}"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Top"
-                       Margin="12,0,0,0" />
+                       Margin="12,10,0,10" />
 
             <ListBox ItemsSource="{Binding Cards}"
                      Grid.Row="2"
@@ -184,26 +190,27 @@
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsMenuEnabled="False">
+        <shell:ApplicationBar>
             <shell:ApplicationBarIconButton x:Name="RefreshButton"
                                             Text="Refresh"
-                                            IconUri="/Icons/dark/appbar.refresh.rest.png"
+                                            IconUri="/Icons/appbar.refresh.rest.png"
                                             Click="RefreshButton_Click" />
             <shell:ApplicationBarIconButton Text="Settings"
-                                            IconUri="/Icons/dark/appbar.feature.settings.rest.png"
                                             x:Name="SettingsButton"
+                                            IconUri="/Icons/appbar.feature.settings.rest.png"
                                             Click="SettingsButton_Click" />
-            <shell:ApplicationBarIconButton Text="Sort"
+            <shell:ApplicationBarIconButton x:Name="SaveCardListButton"
                                             IconUri="/Icons/appbar.download.rest.png"
-                                            x:Name="SortButton"
-                                            Click="SortButton_Click" />
+                                            Click="SaveCardListButton_Click"
+                                            Text="Save List" />
+            <shell:ApplicationBarIconButton x:Name="LoadCardListButton"
+                                            IconUri="/Icons/appbar.upload.rest.png"
+                                            Click="LoadCardListButton_Click"
+                                            Text="Load List" />
             <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem x:Name="LoadCardList"
-                                              Click="LoadCardList_Click"
-                                              Text="Load Card List" />
-                <shell:ApplicationBarMenuItem x:Name="SaveCardList"
-                                              Click="SaveCardList_Click"
-                                              Text="Save Card List" />
+                <shell:ApplicationBarMenuItem Text="Sort"
+                                              x:Name="SortButton"
+                                              Click="SortButton_Click" />
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

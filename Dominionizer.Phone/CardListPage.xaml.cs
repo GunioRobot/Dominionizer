@@ -95,12 +95,12 @@ namespace Dominionizer
             SortOptionPopup.IsOpen = true;
         }
 
-        private void LoadCardList_Click(object sender, EventArgs e)
+        private void LoadCardListButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Not yet implemented.");
         }
 
-        private void SaveCardList_Click(object sender, EventArgs e)
+        private void SaveCardListButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Not yet implemented.");
         }
