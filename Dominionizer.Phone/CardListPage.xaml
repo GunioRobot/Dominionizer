@@ -108,17 +108,26 @@
         <Grid x:Name="CardsListDisplayArea">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <TextBlock Text="{Binding CardListName}"
+            <TextBlock Text="Dominionizer!"
+                       Grid.Row="0"
                        FontSize="48"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="12,0,10,0" />
+
+            <TextBlock Text="{Binding CardListName}"
+                       Grid.Row="1"
+                       FontSize="32"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Top"
                        Margin="12,0,0,0" />
 
             <ListBox ItemsSource="{Binding Cards}"
-                     Grid.Row="1"
+                     Grid.Row="2"
                      x:Name="CardsListBox"
                      SelectedItem="{Binding SelectedCard, Mode=TwoWay}"
                      ScrollViewer.VerticalScrollBarVisibility="Disabled"
